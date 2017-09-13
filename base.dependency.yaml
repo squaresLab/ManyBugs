@@ -1,0 +1,4 @@
+docker:
+  tag: squareslab/manybugs:base
+  file: Dockerfile
+  context: .

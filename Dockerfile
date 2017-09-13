@@ -3,10 +3,6 @@
 FROM squareslab/repairbox:ubuntu64
 MAINTAINER Chris Timperley "christimperley@gmail.com"
 
-# Insert generic compilation script into /experiment
-ADD compile.sh /experiment
-RUN sudo chown -R docker /experiment
-
 # Install basic packages
 RUN sudo apt-get update && \
     sudo apt-get install -y patch wget zip tar git build-essential gcc && \
