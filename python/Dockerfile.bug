@@ -1,4 +1,4 @@
-FROM squareslab/repairbox:manybugs-python-base
+FROM squareslab/manybugs:python
 
 ARG scenario
 ENV SCENARIO_NAME ${scenario}
