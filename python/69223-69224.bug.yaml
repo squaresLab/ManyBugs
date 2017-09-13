@@ -4,6 +4,7 @@ dataset: manybugs
 compilation:
   command: make -j$(nproc)
   context: /experiment/source
+  time-limit: 300
 test-harness:
   type: genprog
   passing: 284
