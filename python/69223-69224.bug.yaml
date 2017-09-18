@@ -11,8 +11,8 @@ test-harness:
   passing: 284
   failing: 1
 docker:
-  depends-on: squareslab/manybugs:python
+  depends-on: manybugs:python
   file: Dockerfile.bug
-  tag: squareslab/manybugs:python-69223-69224
+  tag: manybugs:python-69223-69224
   build-arguments:
     scenario: python-bug-69223-69224

@@ -1,5 +1,5 @@
 docker:
-  tag: squareslab/manybugs:python
+  tag: manybugs:python
   file: Dockerfile
   context: .
-  depends-on: squareslab/manybugs:base
+  depends-on: manybugs:base
