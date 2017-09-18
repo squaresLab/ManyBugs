@@ -6,7 +6,8 @@ ENV OLD_LOCATION /root/mountpoint-genprog/genprog-many-bugs/${SCENARIO_NAME}
 RUN cd /experiment && \
     wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO_NAME}.tar.gz \
           -O scenario.tar.gz && \
-    tar -xf scenario.tar.gz && \
+    tar -xf scenario.tar.gz
+RUN cd /experiment && \
     mv ${SCENARIO_NAME} scenario && \
     rm scenario.tar.gz && \
     cd scenario && \
