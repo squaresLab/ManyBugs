@@ -1,4 +1,4 @@
-FROM squareslab/repairbox:rbox
+FROM squareslab/manybugs:base
 MAINTAINER Chris Timperley "christimperley@gmail.com"
 
 # Install necessary packages

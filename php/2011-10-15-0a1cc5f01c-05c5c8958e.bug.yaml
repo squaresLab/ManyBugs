@@ -1,0 +1,23 @@
+bug: 2011-10-15-0a1cc5f01c-05c5c8958e
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
+docker:
+  build-arguments:
+    autoconf: '2.59'
+    bison: 2.4.3
+    bug_revision: e7a1d5004e
+    fix_revision: 3571c955b5
+    scenario: php-bug-2011-10-15-0a1cc5f01c-05c5c8958e
+  depends-on: squareslab/manybugs:php
+  file: Dockerfile.bug
+  tag: squareslab/manybugs:php-2011-10-15-0a1cc5f01c-05c5c8958e
+language: c
+program: php
+source-location: /experiment/src
+test-harness:
+  failing: UNKNOWN
+  passing: UNKNOWN
+  type: genprog
