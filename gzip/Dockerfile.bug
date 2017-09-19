@@ -1,3 +1,5 @@
+FROM squareslab/repairbox:libtiff
+
 ARG perl
 RUN perlbrew install "perl-${perl}" && \
     perlbrew use "perl-${perl}"

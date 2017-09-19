@@ -1,0 +1,21 @@
+bug: 2010-01-30-fc00329e3d-1204630c96
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
+docker:
+  build-arguments:
+    perl: 5.8.9
+    scenario: gzip-bug-2010-01-30-fc00329e3d-1204630c96
+  depends-on: squareslab/manybugs:gzip
+  file: Dockerfile.bug
+  tag: squareslab/manybugs:gzip-2010-01-30-fc00329e3d-1204630c96
+language: c
+program: gzip
+source-location: /experiment/src
+test-harness:
+  failing: UNKNOWN
+  passing: UNKNOWN
+  time-limit: 300
+  type: genprog
