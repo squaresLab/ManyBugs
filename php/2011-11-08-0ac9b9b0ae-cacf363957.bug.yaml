@@ -20,4 +20,5 @@ source-location: /experiment/src
 test-harness:
   failing: 6
   passing: 7804
+  time-limit: 600
   type: genprog

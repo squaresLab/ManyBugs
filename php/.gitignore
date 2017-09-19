@@ -3,3 +3,4 @@ sanity/
 local-root/
 php-run-tests
 */Dockerfile
+fix.py
