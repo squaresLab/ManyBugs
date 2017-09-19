@@ -18,6 +18,6 @@ language: c
 program: php
 source-location: /experiment/src
 test-harness:
-  failing: UNKNOWN
-  passing: UNKNOWN
+  failing: 2
+  passing: 7611
   type: genprog
