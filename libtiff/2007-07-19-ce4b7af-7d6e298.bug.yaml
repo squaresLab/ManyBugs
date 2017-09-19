@@ -1,0 +1,19 @@
+bug: 2007-07-19-ce4b7af-7d6e298
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
+docker:
+  build-arguments:
+    scenario: libtiff-bug-2007-07-19-ce4b7af-7d6e298
+  depends-on: squareslab/manybugs:libtiff
+  file: Dockerfile.bug
+  tag: squareslab/manybugs:libtiff-2007-07-19-ce4b7af-7d6e298
+language: c
+program: libtiff
+source-location: /experiment/src
+test-harness:
+  failing: UNKNOWN
+  passing: UNKNOWN
+  type: genprog

@@ -1,0 +1,19 @@
+bug: 2007-07-08-bd2f947-ccc10c7
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
+docker:
+  build-arguments:
+    scenario: libtiff-bug-2007-07-08-bd2f947-ccc10c7
+  depends-on: squareslab/manybugs:libtiff
+  file: Dockerfile.bug
+  tag: squareslab/manybugs:libtiff-2007-07-08-bd2f947-ccc10c7
+language: c
+program: libtiff
+source-location: /experiment/src
+test-harness:
+  failing: UNKNOWN
+  passing: UNKNOWN
+  type: genprog

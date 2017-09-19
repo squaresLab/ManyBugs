@@ -1,0 +1,19 @@
+bug: 2007-07-13-09e8220-f2d989d
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
+docker:
+  build-arguments:
+    scenario: libtiff-bug-2007-07-13-09e8220-f2d989d
+  depends-on: squareslab/manybugs:libtiff
+  file: Dockerfile.bug
+  tag: squareslab/manybugs:libtiff-2007-07-13-09e8220-f2d989d
+language: c
+program: libtiff
+source-location: /experiment/src
+test-harness:
+  failing: UNKNOWN
+  passing: UNKNOWN
+  type: genprog

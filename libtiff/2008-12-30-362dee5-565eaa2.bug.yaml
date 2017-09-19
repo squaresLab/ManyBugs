@@ -1,0 +1,19 @@
+bug: 2008-12-30-362dee5-565eaa2
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
+docker:
+  build-arguments:
+    scenario: libtiff-bug-2008-12-30-362dee5-565eaa2
+  depends-on: squareslab/manybugs:libtiff
+  file: Dockerfile.bug
+  tag: squareslab/manybugs:libtiff-2008-12-30-362dee5-565eaa2
+language: c
+program: libtiff
+source-location: /experiment/src
+test-harness:
+  failing: UNKNOWN
+  passing: UNKNOWN
+  type: genprog
