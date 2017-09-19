@@ -1,4 +1,4 @@
-FROM squareslab/repairbox:manybugs-libtiff-base
+FROM squareslab/manybugs:libtiff
 
 # accepts the name of a Libtiff ManyBugs scenario
 ARG scenario
