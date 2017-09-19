@@ -15,7 +15,7 @@ language: c
 program: gzip
 source-location: /experiment/src
 test-harness:
-  failing: UNKNOWN
-  passing: UNKNOWN
+  failing: 1
+  passing: 3
   time-limit: 300
   type: genprog
