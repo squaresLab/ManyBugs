@@ -1,4 +1,4 @@
-FROM manybugs:python
+FROM squareslab/manybugs:python
 
 ARG scenario
 ENV SCENARIO_NAME ${scenario}
@@ -44,10 +44,6 @@ RUN sed -i "s/cd python/cd src/" test.sh && \
 RUN cd src && \
     hg update -r $(grep "bug revision:" ../bug-info/scenario-data.txt | cut -d " " -f3) && \
     hg revert -r $(grep "fix revision:" ../bug-info/scenario-data.txt | cut -d " " -f3) Lib/test
-
-# each Python bug has its own (more efficient) compile script
-# TODO: re-integrate
-#ADD compile.sh /experiment
 
 # configure
 RUN cd src && \

@@ -1,4 +1,4 @@
-FROM manybugs:base
+FROM squareslab/manybugs:base
 MAINTAINER Chris Timperley "christimperley@gmail.com"
 
 #RUN sudo dpkg --add-architecture i386

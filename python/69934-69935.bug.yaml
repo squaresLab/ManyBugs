@@ -1,4 +1,4 @@
-bug: 69223-69224
+bug: 69934-69935
 compilation:
   command: make -j$(nproc)
   context: /experiment/src
@@ -6,10 +6,10 @@ compilation:
 dataset: manybugs
 docker:
   build-arguments:
-    scenario: python-bug-69223-69224
+    scenario: python-bug-69934-69935
   depends-on: squareslab/manybugs:python
   file: Dockerfile.bug
-  tag: squareslab/manybugs:python-69223-69224
+  tag: squareslab/manybugs:python-69934-69935
 language: c
 program: python
 source-location: /experiment/src
