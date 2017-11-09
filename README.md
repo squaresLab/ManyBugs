@@ -2,7 +2,7 @@
 
 **TODO:** Add a description of ManyBugs.
 
-## Interacting with the dataset
+## Installation
 
 The ManyBugs dataset is compatible with the
 [RepairBox](https://github.com/squaresLab/RepairBox) platform for conducting
