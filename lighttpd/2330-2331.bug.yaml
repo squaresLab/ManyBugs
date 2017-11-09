@@ -1,0 +1,21 @@
+version: '1.0'
+bug: 2330-2331
+dataset: manybugs
+program: lighttpd
+docker:
+  build-arguments:
+    bug_commit: 2330
+    fix_commit: 2331
+  file: Dockerfile.bug
+  depends-on: squareslab/manybugs:lighttpd
+  tag: squareslab/manybugs:lighttpd-2330-2331
+source-location: /experiment/src
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 120
+test-harness:
+  type: genprog
+  passing: 19
+  failing: 1
+  time-limit: 10
