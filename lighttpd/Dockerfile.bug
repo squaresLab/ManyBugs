@@ -47,9 +47,8 @@ RUN cd /experiment && \
       svn revert --recursive . && \
     sudo chown -R docker /experiment
 
-# preprocess, configure, and compile
-RUN ./preprocess && \
-    cd src && \
+# TODO: preprocess source code
+RUN cd src && \
     ./configure && \
     make -j$(nproc)
 
