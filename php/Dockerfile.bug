@@ -1,4 +1,4 @@
-FROM squareslab/manybugs:php
+FROM squareslab/repairbox:manybugs-php-base
 MAINTAINER Chris Timperley "christimperley@gmail.com"
 
 # Install dependencies
@@ -7,7 +7,7 @@ ENV BISON_VERSION "${bison}"
 ARG autoconf
 ENV AUTOCONF_VERSION "${autoconf}"
 RUN ./install-dependencies && \
-    rm /experiment/install-dependencies 
+    rm /experiment/install-dependencies
 
 # Download the original archive for this scenario
 ARG scenario
@@ -57,13 +57,10 @@ ARG fix_revision
 ENV FIX_REVISION "${fix_revision}"
 
 # Patch and configure
-RUN cd src && \
-    cat ../libxml.patch | patch -p0 && \
-    rm ../libxml.patch && \
-    ./buildconf && \
-    ./configure 
+ADD prepare.py /experiment/prepare.py
+RUN /experiment/prepare.py
 
 # Generate a better test harness
 RUN ./tester.py build && \
-    rm tests.all.txt tests.indices.txt
-RUN sudo chown $(whoami) /experiment/test.sh
+    rm tests.all.txt tests.indices.txt && \
+    echo "#!/bin/bash\n./tester.py run \"$1\"" > /experiment/test.sh
