@@ -4,10 +4,10 @@ dataset: manybugs
 program: wireshark
 docker:
   build-arguments:
-    scenario: wireshark-bug-37122-37111
+    scenario: wireshark-bug-37112-37111
   file: Dockerfile.bug
   depends-on: squareslab/manybugs:wireshark
-  tag: squareslab/manybugs:wireshark-37122-37111
+  tag: squareslab/manybugs:wireshark-37112-37111
 source-location: /experiment/src
 compilation:
   command: make -j$(nproc)
