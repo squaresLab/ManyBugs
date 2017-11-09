@@ -1,0 +1,21 @@
+version: '1.0'
+bug: 13420-13421
+dataset: manybugs
+program: gmp
+docker:
+  build-arguments:
+    bug_commit: 13420
+    fix_commit: 13421
+  file: Dockerfile.bug
+  depends-on: squareslab/manybugs:gmp
+  tag: squareslab/manybugs:gmp-13420-13421
+source-location: /experiment/src
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 120
+test-harness:
+  type: genprog
+  passing: 140
+  failing: 3
+  time-limit: 25

@@ -1,0 +1,5 @@
+docker:
+  tag: squareslab/manybugs:gmp
+  file: Dockerfile
+  context: .
+  depends-on: squareslab/manybugs:base
