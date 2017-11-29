@@ -14,4 +14,5 @@ install:
 script:
   - bugzoo -h
   - bugzoo source add https://github.com/ChrisTimperley/ManyBugs
+  - bugzoo bug validate manybugs:python:69368-69372
   - bugzoo bug validate manybugs:python:69223-69224
