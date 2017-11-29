@@ -1,0 +1,17 @@
+language: python
+
+sudo: required
+
+services:
+  - docker
+
+python:
+  - "3.6"
+
+install:
+  - pip install bugzoo
+
+script:
+  - bugzoo -h
+  - bugzoo source add https://github.com/ChrisTimperley/ManyBugs
+  - bugzoo bug validate manybugs:python:69223-69224
