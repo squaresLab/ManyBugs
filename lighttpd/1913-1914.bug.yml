@@ -1,22 +1,24 @@
-version: '1.0'
 bug: 1913-1914
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 120
 dataset: manybugs
-program: lighttpd
 docker:
   build-arguments:
     bug_commit: 1913
     fix_commit: 1914
   context: .
-  file: Dockerfile.bug
   depends-on: squareslab/manybugs:lighttpd
+  file: Dockerfile.bug
   tag: squareslab/manybugs:lighttpd-1913-1914
+languages:
+- c
+program: lighttpd
 source-location: /experiment/src
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 120
 test-harness:
-  type: genprog
-  passing: 17
   failing: 1
+  passing: 17
   time-limit: 10
+  type: genprog
+version: '1.0'

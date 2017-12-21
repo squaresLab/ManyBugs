@@ -1,20 +1,22 @@
-version: '1.0'
 bug: 37122-37123
-dataset: manybugs
-program: wireshark
-docker:
-  build-arguments:
-    scenario: wireshark-bug-37122-37123
-  file: Dockerfile.bug
-  depends-on: squareslab/manybugs:wireshark
-  tag: squareslab/manybugs:wireshark-37122-37123
-source-location: /experiment/src
 compilation:
   command: make -j$(nproc)
   context: /experiment/src
   time-limit: 120
+dataset: manybugs
+docker:
+  build-arguments:
+    scenario: wireshark-bug-37122-37123
+  depends-on: squareslab/manybugs:wireshark
+  file: Dockerfile.bug
+  tag: squareslab/manybugs:wireshark-37122-37123
+languages:
+- c
+program: wireshark
+source-location: /experiment/src
 test-harness:
-  type: genprog
-  passing: 60
   failing: 1
+  passing: 60
   time-limit: 25
+  type: genprog
+version: '1.0'

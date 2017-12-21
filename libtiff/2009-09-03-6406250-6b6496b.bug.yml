@@ -10,7 +10,8 @@ docker:
   depends-on: squareslab/manybugs:libtiff
   file: Dockerfile.bug
   tag: squareslab/manybugs:libtiff-2009-09-03-6406250-6b6496b
-language: c
+languages:
+- c
 program: libtiff
 source-location: /experiment/src
 test-harness:

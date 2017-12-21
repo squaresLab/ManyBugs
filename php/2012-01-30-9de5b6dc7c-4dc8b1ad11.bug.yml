@@ -14,7 +14,8 @@ docker:
   depends-on: squareslab/manybugs:php
   file: Dockerfile.bug
   tag: squareslab/manybugs:php-2012-01-30-9de5b6dc7c-4dc8b1ad11
-language: c
+languages:
+- c
 program: php
 source-location: /experiment/src
 test-harness:

@@ -11,7 +11,8 @@ docker:
   depends-on: squareslab/manybugs:gzip
   file: Dockerfile.bug
   tag: squareslab/manybugs:gzip-2009-10-09-1a085b1446-118a107f2d
-language: c
+languages:
+- c
 program: gzip
 source-location: /experiment/src
 test-harness:

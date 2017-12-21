@@ -10,7 +10,8 @@ docker:
   depends-on: squareslab/manybugs:python
   file: Dockerfile.bug
   tag: squareslab/manybugs:python-69609-69616
-language: c
+languages:
+- c
 program: python
 source-location: /experiment/src
 test-harness:
