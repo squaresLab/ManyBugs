@@ -1,15 +1,16 @@
 bug: 2009-02-05-764dbba-2e42d63
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 300
-dataset: manybugs
-docker:
+build:
   build-arguments:
     scenario: libtiff-bug-2009-02-05-764dbba-2e42d63
   depends-on: squareslab/manybugs:libtiff
   file: Dockerfile.bug
   tag: squareslab/manybugs:libtiff-2009-02-05-764dbba-2e42d63
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
 languages:
 - c
 program: libtiff

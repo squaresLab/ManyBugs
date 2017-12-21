@@ -1,15 +1,16 @@
 bug: 2005-12-14-6746b87-0d3d51d
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 300
-dataset: manybugs
-docker:
+build:
   build-arguments:
     scenario: libtiff-bug-2005-12-14-6746b87-0d3d51d
   depends-on: squareslab/manybugs:libtiff
   file: Dockerfile.bug
   tag: squareslab/manybugs:libtiff-2005-12-14-6746b87-0d3d51d
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
 languages:
 - c
 program: libtiff

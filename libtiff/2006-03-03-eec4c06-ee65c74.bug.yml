@@ -1,15 +1,16 @@
 bug: 2006-03-03-eec4c06-ee65c74
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 300
-dataset: manybugs
-docker:
+build:
   build-arguments:
     scenario: libtiff-bug-2006-03-03-eec4c06-ee65c74
   depends-on: squareslab/manybugs:libtiff
   file: Dockerfile.bug
   tag: squareslab/manybugs:libtiff-2006-03-03-eec4c06-ee65c74
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
 languages:
 - c
 program: libtiff

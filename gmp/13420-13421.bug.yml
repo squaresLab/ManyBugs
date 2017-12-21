@@ -1,16 +1,17 @@
 bug: 13420-13421
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 120
-dataset: manybugs
-docker:
+build:
   build-arguments:
     bug_commit: 13420
     fix_commit: 13421
   depends-on: squareslab/manybugs:gmp
   file: Dockerfile.bug
   tag: squareslab/manybugs:gmp-13420-13421
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 120
+dataset: manybugs
 languages:
 - c
 program: gmp

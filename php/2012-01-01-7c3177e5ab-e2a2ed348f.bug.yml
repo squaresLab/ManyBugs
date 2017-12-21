@@ -1,10 +1,5 @@
 bug: 2012-01-01-7c3177e5ab-e2a2ed348f
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 300
-dataset: manybugs
-docker:
+build:
   build-arguments:
     autoconf: '2.59'
     bison: 2.4.3
@@ -14,6 +9,12 @@ docker:
   depends-on: squareslab/manybugs:php
   file: Dockerfile.bug
   tag: squareslab/manybugs:php-2012-01-01-7c3177e5ab-e2a2ed348f
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
 languages:
 - c
 program: php

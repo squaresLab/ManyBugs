@@ -1,15 +1,16 @@
 bug: 37122-37123
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 120
-dataset: manybugs
-docker:
+build:
   build-arguments:
     scenario: wireshark-bug-37122-37123
   depends-on: squareslab/manybugs:wireshark
   file: Dockerfile.bug
   tag: squareslab/manybugs:wireshark-37122-37123
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 120
+dataset: manybugs
 languages:
 - c
 program: wireshark

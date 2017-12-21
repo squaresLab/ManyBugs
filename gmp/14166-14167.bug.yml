@@ -1,16 +1,17 @@
 bug: 14166-14167
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 120
-dataset: manybugs
-docker:
+build:
   build-arguments:
     bug_commit: 14166
     fix_commit: 14167
   depends-on: squareslab/manybugs:gmp
   file: Dockerfile.bug
   tag: squareslab/manybugs:gmp-14166-14167
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 120
+dataset: manybugs
 languages:
 - c
 program: gmp

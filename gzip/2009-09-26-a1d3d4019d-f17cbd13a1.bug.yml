@@ -1,16 +1,17 @@
 bug: 2009-09-26-a1d3d4019d-f17cbd13a1
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 300
-dataset: manybugs
-docker:
+build:
   build-arguments:
     perl: 5.10.1
     scenario: gzip-bug-2009-09-26-a1d3d4019d-f17cbd13a1
   depends-on: squareslab/manybugs:gzip
   file: Dockerfile.bug
   tag: squareslab/manybugs:gzip-2009-09-26-a1d3d4019d-f17cbd13a1
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
 languages:
 - c
 program: gzip

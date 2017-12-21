@@ -1,16 +1,17 @@
 bug: 1806-1807
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 120
-dataset: manybugs
-docker:
+build:
   build-arguments:
     bug_commit: 1806
     fix_commit: 1807
   depends-on: squareslab/manybugs:lighttpd
   file: Dockerfile.bug
   tag: squareslab/manybugs:lighttpd-1806-1807
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 120
+dataset: manybugs
 languages:
 - c
 program: lighttpd

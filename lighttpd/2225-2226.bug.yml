@@ -1,16 +1,17 @@
 bug: 2225-2226
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 120
-dataset: manybugs
-docker:
+build:
   build-arguments:
     bug_commit: 2225
     fix_commit: 2226
   depends-on: squareslab/manybugs:lighttpd
   file: Dockerfile.bug
   tag: squareslab/manybugs:lighttpd-2225-2226
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 120
+dataset: manybugs
 languages:
 - c
 program: lighttpd

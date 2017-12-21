@@ -1,16 +1,17 @@
 bug: 2009-08-16-3fe0caeada-39a362ae9d
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 300
-dataset: manybugs
-docker:
+build:
   build-arguments:
     perl: 5.8.9
     scenario: gzip-bug-2009-08-16-3fe0caeada-39a362ae9d
   depends-on: squareslab/manybugs:gzip
   file: Dockerfile.bug
   tag: squareslab/manybugs:gzip-2009-08-16-3fe0caeada-39a362ae9d
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
 languages:
 - c
 program: gzip

@@ -1,16 +1,17 @@
 bug: 1948-1949
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 120
-dataset: manybugs
-docker:
+build:
   build-arguments:
     bug_commit: 1948
     fix_commit: 1949
   depends-on: squareslab/manybugs:lighttpd
   file: Dockerfile.bug
   tag: squareslab/manybugs:lighttpd-1948-1949
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 120
+dataset: manybugs
 languages:
 - c
 program: lighttpd

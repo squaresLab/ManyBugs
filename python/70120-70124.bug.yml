@@ -1,15 +1,16 @@
 bug: 70120-70124
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
-  time-limit: 300
-dataset: manybugs
-docker:
+build:
   build-arguments:
     scenario: python-bug-70120-70124
   depends-on: squareslab/manybugs:python
   file: Dockerfile.bug
   tag: squareslab/manybugs:python-70120-70124
+  type: docker
+compilation:
+  command: make -j$(nproc)
+  context: /experiment/src
+  time-limit: 300
+dataset: manybugs
 languages:
 - c
 program: python
