@@ -1,24 +1,21 @@
-build:
-  arguments:
-    scenario: python-bug-69223-69224
-  depends-on: squareslab/manybugs:python
-  file: Dockerfile.bug
-  tag: squareslab/manybugs:python-69223-69224
-  type: docker
+bug: 69223-69224
 compilation:
   command: make -j$(nproc)
   context: /experiment/src
   time-limit: 300
+dataset: manybugs
+docker:
+  build-arguments:
+    scenario: python-bug-69368-69372
+  depends-on: squareslab/manybugs:python
+  file: Dockerfile.bug
+  tag: squareslab/manybugs:python-69368-69372
 languages:
 - c
 program: python
-source:
-  location: /experiment/src
-tag: 69223-69224
+source-location: /experiment/src
 test-harness:
   failing: 1
-  passing: 284
+  passing: 292
   time-limit: 600
   type: genprog
-type: bug
-version: '1.0'
