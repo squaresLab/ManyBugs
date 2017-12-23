@@ -1,4 +1,4 @@
-FROM squareslab/repairbox:libtiff
+FROM squareslab/repairbox:gzip
 
 ARG perl
 RUN perlbrew install "perl-${perl}" && \
