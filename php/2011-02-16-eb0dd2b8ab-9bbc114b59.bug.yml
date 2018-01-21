@@ -10,10 +10,9 @@ build:
   file: Dockerfile.bug
   tag: squareslab/manybugs:php-2011-02-16-eb0dd2b8ab-9bbc114b59
   type: docker
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
+compiler:
   time-limit: 300
+  type: configure-and-make
 dataset: manybugs
 languages:
 - c
