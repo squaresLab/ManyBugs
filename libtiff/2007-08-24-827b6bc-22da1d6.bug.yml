@@ -6,10 +6,9 @@ build:
   file: Dockerfile.bug
   tag: squareslab/manybugs:libtiff-2007-08-24-827b6bc-22da1d6
   type: docker
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
+compiler:
   time-limit: 300
+  type: configure-and-make
 dataset: manybugs
 languages:
 - c

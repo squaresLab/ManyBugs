@@ -7,10 +7,9 @@ build:
   file: Dockerfile.bug
   tag: squareslab/manybugs:gzip-2009-08-16-3fe0caeada-39a362ae9d
   type: docker
-compilation:
-  command: make -j$(nproc)
-  context: /experiment/src
+compiler:
   time-limit: 300
+  type: configure-and-make
 dataset: manybugs
 languages:
 - c
