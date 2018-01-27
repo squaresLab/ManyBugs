@@ -58,10 +58,10 @@ ENV FIX_REVISION "${fix_revision}"
 
 # Patch and configure
 ADD prepare.py /experiment/prepare.py
-RUN sudo chown docker experiment/prepare.py && \
-    sudo chmod +x experiment/prepare.py && \
-    experiment/prepare.py && \
-    rm -f experiment/prepare.py
+RUN sudo chown docker /experiment/prepare.py && \
+    sudo chmod +x /experiment/prepare.py && \
+    /experiment/prepare.py && \
+    rm -f /experiment/prepare.py
 
 # Generate a better test harness
 RUN ./tester.py build && \
