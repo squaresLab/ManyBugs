@@ -29,7 +29,6 @@ RUN cd /experiment && \
             *.cache \
             *.debug.* \
             sanity \
-            compile.pl \
             *~ \
             php.tar.gz \
             fixed-program.txt && \
