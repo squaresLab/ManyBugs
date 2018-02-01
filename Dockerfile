@@ -51,4 +51,5 @@ WORKDIR /experiment
 
 # add compile script
 ADD compile.sh /experiment/compile.sh
-RUN sudo chown -R docker /experiment
+RUN sudo chown -R docker /experiment && \
+    sudo chmod +x compile.sh
