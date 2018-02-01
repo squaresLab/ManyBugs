@@ -21,7 +21,6 @@ RUN cd /experiment && \
     rm scenario.tar.gz && \
     cd scenario && \
     rm -rf  coverage* \
-            php-helper.php \
             configuration-oracle \
             local-root \
             limit* \
@@ -30,10 +29,9 @@ RUN cd /experiment && \
             *.debug.* \
             sanity \
             *~ \
-            php.tar.gz \
-            fixed-program.txt && \
+            php.tar.gz && \
     mv bug-failures bug-info && \
-    mv bugged-program.txt manifest.txt && \
+    cp bugged-program.txt manifest.txt && \
     mv *.lines bug-info && \
     mv fix-failures bug-info && \
     cd ../ && \
