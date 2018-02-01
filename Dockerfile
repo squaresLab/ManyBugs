@@ -48,3 +48,7 @@ RUN sudo rm /bin/sh && \
 # Create the experiment directory and set it as the work dir
 RUN sudo mkdir -p /experiment && sudo chown -R docker /experiment
 WORKDIR /experiment
+
+# add compile script
+ADD compile.sh /experiment/compile.sh
+RUN sudo chown -R docker /experiment
