@@ -27,7 +27,6 @@ RUN cd /experiment && \
             php-tests-* \
             *.cache \
             *.debug.* \
-            sanity \
             *~ \
             php.tar.gz && \
     mv bug-failures bug-info && \
