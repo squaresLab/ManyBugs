@@ -12,6 +12,14 @@ RUN sudo apt-get update && \
     sudo apt-get autoremove && \
     sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# download the largest set of test files
+RUN cd /tmp && \
+    wget -nv http://people.cs.umass.edu/~brun/repairbenchmarks//ManyBugs/scenarios/php-bug-2012-03-12-438a30f1e7-7337a901b7.tar.gz && \
+    tar -xf php*.tar.gz && \
+    mv php*/php/tests.tar.gz /tmp/tests.tar.gz && \
+    rm -rf php* && \
+    mv tests.tar.gz /experiment/all-tests.tar.gz
+
 ADD libxml.patch /experiment
 ADD install-dependencies /experiment
 ADD tester.py /experiment
