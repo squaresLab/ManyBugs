@@ -67,3 +67,7 @@ RUN sed -i "s#${OLD_LOCATION}#/experiment#g" test.sh && \
     sed -i "s#/usr/bin/perl#perl#g" test.sh && \
     sed -i 's#lt-\.\*#lt-\.\* \&\> /dev/null#g' test.sh && \
     chmod +x gmp-run-tests.pl
+
+# Fix the GenProg configuration file
+RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
+    sed -i "s#perl compile.pl#./compile.sh#"    configuration-default
