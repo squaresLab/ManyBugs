@@ -21,7 +21,7 @@ RUN wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO
     mv bug-failures bug-info && \
     mv fix.lines bug-info && \
     mv fault.lines bug-info && \
-    mv bugged-program.txt preprocessed/manifest.txt && \
+    mv bugged-program.txt manifest.txt && \
     cd /experiment && \
     mv scenario/* . && rm -rf scenario && \
     sed -i "s#/usr/bin/perl#perl#" test.sh && \
