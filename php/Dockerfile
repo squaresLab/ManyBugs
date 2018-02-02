@@ -16,9 +16,10 @@ RUN sudo apt-get update && \
 RUN cd /tmp && \
     wget -nv http://people.cs.umass.edu/~brun/repairbenchmarks//ManyBugs/scenarios/php-bug-2012-03-12-438a30f1e7-7337a901b7.tar.gz && \
     tar -xf php*.tar.gz && \
-    mv php*/php/tests.tar.gz /tmp/tests.tar.gz && \
-    rm -rf php* && \
-    mv tests.tar.gz /experiment/all-tests.tar.gz
+    cd php*/php && \
+    find . -name tests.tar.gz -print | tar -cvf all-tests.tar --files-from -  && \
+    mv all-tests.tar /experiment/all-tests.tar && \
+    rm -rf /tmp/php*
 
 ADD libxml.patch /experiment
 ADD install-dependencies /experiment
