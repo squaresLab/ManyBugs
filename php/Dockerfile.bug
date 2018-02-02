@@ -71,4 +71,4 @@ RUN ./tester.py build && \
 # Fix the GenProg configuration file
 RUN sed -i "s#compile.pl#compile.sh#"           configuration-default && \
     sed -i "s#./test.sh#./tester.py run#"       configuration-default && \
-    sed -i "s#bugged-program.txt#manifest.txt"  configuration-default
+    sed -i "s#bugged-program.txt#manifest.txt#" configuration-default
