@@ -48,6 +48,8 @@ RUN cd /experiment && \
 
 # Build test suite archive
 RUN cd src && \
+    find . -name tests.tar.gz -delete && \
+    ../php-tests-tar.sh && \
     find . -name tests.tar.gz -print | \
       tar -cvf all-tests.tar --files-from - && \
     mv all-tests.tar /experiment/all-tests.tar
