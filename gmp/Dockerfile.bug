@@ -1,4 +1,4 @@
-FROM squareslab/repairbox:manybugs-gmp
+FROM squareslab/manybugs:gmp
 
 ARG bug_commit
 ARG fix_commit
