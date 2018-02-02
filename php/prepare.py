@@ -39,10 +39,10 @@ if __name__ == "__main__":
         shutil.rmtree('/experiment/src')
         cmd('git clone https://github.com/php/php-src /experiment/src')
         cmd('cd /experiment/src && git checkout "{}"'.format(bug_rev))
-        
+
     # apply libxml fix
     cmd('cd /experiment/src && cat ../libxml.patch | patch -p0')
-    
+
     # build configure script
     cmd('cd /experiment/src && ./buildconf')
 
