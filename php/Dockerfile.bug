@@ -46,6 +46,11 @@ RUN cd /experiment && \
     make distclean &> /dev/null && \
     rm -rf  configure config.nice autom4te.cache aclocal.m4 php5.spec missing mkinstalldirs
 
+# Unpack tests
+RUN cd src && \
+    mv ../all-tests.tar . && \
+    find . -name tests.tar.gz -exec tar -xf {} \;
+
 ARG bug_revision
 ENV BUG_REVISION "${bug_revision}"
 ARG fix_revision
