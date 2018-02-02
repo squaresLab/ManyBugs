@@ -73,8 +73,7 @@ RUN sudo chown docker /experiment/prepare.py && \
 
 # Generate a better test harness
 RUN ./tester.py build && \
-    rm tests.all.txt tests.indices.txt && \
-    echo "#!/bin/bash\n./tester.py run \"$1\"" > /experiment/test.sh
+    rm tests.all.txt tests.indices.txt
 
 # Fix the GenProg configuration file
 RUN sed -i "s#compile.pl#compile.sh#"           configuration-default && \

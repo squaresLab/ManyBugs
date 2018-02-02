@@ -15,5 +15,6 @@ RUN sudo apt-get update && \
 ADD libxml.patch /experiment
 ADD install-dependencies /experiment
 ADD tester.py /experiment
+ADD test.sh /experiment
 ADD php-tests-tar.sh /experiment/php-tests-tar.sh
 RUN sudo chown -R docker /experiment
