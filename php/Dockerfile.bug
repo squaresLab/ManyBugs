@@ -50,7 +50,7 @@ RUN cd /experiment && \
 RUN cd src && \
     find . -name tests.tar.gz -print | \
       tar -cvf all-tests.tar --files-from - && \
-    mv all-tests.tar /experiment/all-tests.tar && \
+    mv all-tests.tar /experiment/all-tests.tar
 
 ARG bug_revision
 ENV BUG_REVISION "${bug_revision}"
