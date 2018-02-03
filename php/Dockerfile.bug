@@ -17,8 +17,7 @@ RUN cd /experiment && \
     wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO_NAME}.tar.gz \
           -O scenario.tar.gz && \
     tar -xf scenario.tar.gz && \
-    mv ${SCENARIO_NAME} scenario && \
-    rm scenario.tar.gz
+    mv ${SCENARIO_NAME} scenario
 
 # Tidy-up the associated artefacts
 RUN cd scenario && \
