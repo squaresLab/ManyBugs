@@ -18,8 +18,10 @@ RUN cd /experiment && \
           -O scenario.tar.gz && \
     tar -xf scenario.tar.gz && \
     mv ${SCENARIO_NAME} scenario && \
-    rm scenario.tar.gz && \
-    cd scenario && \
+    rm scenario.tar.gz
+
+# Tidy-up the associated artefacts
+RUN cd scenario && \
     rm -rf  coverage* \
             configuration-oracle \
             local-root \
