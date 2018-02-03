@@ -45,5 +45,9 @@ RUN cd src && \
 RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
     sed -i "s#perl compile.pl#./compile.sh#"    configuration-default
 
+# Replace the test suite
+RUN rm -rf src/tests && \
+    mv tests src/tests
+
 #RUN 
 #  ./configure "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32"
