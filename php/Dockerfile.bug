@@ -28,7 +28,6 @@ RUN cd /experiment && \
             *.cache \
             *.debug.* \
             test.sh \
-            php-run-tests* \
             *~ \
             php.tar.gz && \
     mv bug-failures bug-info && \
@@ -41,6 +40,7 @@ RUN cd /experiment && \
     sudo chown -R docker /experiment && \
     grep -o -P '(?<=")[^"]+.phpt(?=")' php-run-tests.c > tests.all.txt && \
     grep -o -P '\d+(?= &&)' test.sh > tests.indices.txt && \
+    rm -f php-run-tests.c && \
     mv php src && \
     cd src && \
     make distclean &> /dev/null && \
