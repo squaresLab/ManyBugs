@@ -2,7 +2,7 @@
 import os
 import shutil
 import subprocess
-import errno    
+import errno
 
 
 # https://stackoverflow.com/questions/600268/mkdir-p-functionality-in-python
@@ -25,8 +25,8 @@ os.mkdir('/experiment/preprocessed')
 
 # recompile
 os.chdir('/experiment/src')
-subprocess.check_call('./configure CFLAGS="-save-temps=obj"', shell=True)
-subprocess.check_call('make -j$(nproc)', shell=True)
+subprocess.check_call('./configure CFLAGS="-save-temps"', shell=True)
+subprocess.check_call('make clean && make -j$(nproc)', shell=True)
 
 # extract preprocessed files
 for fn in files:
