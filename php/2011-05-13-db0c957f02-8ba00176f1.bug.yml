@@ -3,8 +3,8 @@ build:
   build-arguments:
     autoconf: '2.59'
     bison: 2.4.3
-    bug_revision: e7a1d5004e
-    fix_revision: 3571c955b5
+    bug_revision: db0c957f02
+    fix_revision: 8ba00176f1
     scenario: php-bug-2011-05-13-db0c957f02-8ba00176f1
   depends-on: squareslab/manybugs:php
   file: Dockerfile.bug
