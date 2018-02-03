@@ -23,3 +23,5 @@ RUN sudo apt-get update && \
 
 # clone Python repo
 RUN hg clone https://hg.python.org/cpython src
+
+ADD preprocess /experiment

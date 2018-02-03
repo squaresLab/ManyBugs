@@ -54,3 +54,6 @@ RUN cd src && \
 # fix the GenProg config file
 RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
     sed -i "s#perl compile.pl#./compile.sh#"    configuration-default
+
+# preprocess
+RUN ./preprocess
