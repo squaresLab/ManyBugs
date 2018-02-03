@@ -29,9 +29,9 @@ RUN cd scenario && \
             php-tests-* \
             *.cache \
             *.debug.* \
-            test.sh \
             *~ \
             php.tar.gz && \
+    mv test.sh test.sh.orig && \
     mv bug-failures bug-info && \
     cp bugged-program.txt manifest.txt && \
     mv *.lines bug-info && \
@@ -41,8 +41,8 @@ RUN cd scenario && \
     rm -rf scenario && \
     sudo chown -R docker /experiment && \
     grep -o -P '(?<=")[^"]+.phpt(?=")' php-run-tests.c > tests.all.txt && \
-    grep -o -P '\d+(?= &&)' test.sh > tests.indices.txt && \
-    rm -f php-run-tests.c && \
+    grep -o -P '\d+(?= &&)' test.sh.orig > tests.indices.txt && \
+    rm -f php-run-tests.c test.sh.orig && \
     mv php src && \
     cd src && \
     make distclean &> /dev/null && \
