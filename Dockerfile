@@ -35,6 +35,7 @@ RUN sudo apt-get update && \
                           zip \
                           unzip \
                           python3-setuptools \
+                          python \
                           software-properties-common \
                           libncurses5-dev && \
     sudo apt-get autoremove -y && \
