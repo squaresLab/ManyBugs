@@ -49,6 +49,9 @@ RUN sudo rm /bin/sh && \
 RUN sudo mkdir -p /experiment && sudo chown -R docker /experiment
 WORKDIR /experiment
 
+# add generic preprocessing script
+ADD preprocess /experiment/preprocess
+
 # add compile script
 ADD compile.sh /experiment/compile.sh
 RUN sudo chown -R docker /experiment && \
