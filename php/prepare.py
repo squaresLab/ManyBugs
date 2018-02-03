@@ -22,6 +22,24 @@ NASTY_REVISIONS = [
     "ff63c09e6f"
 ]
 
+# keep a list of test directories
+# find . -name tests -type d -exec git checkout FIX-REVISION {} \;
+TEST_DIRS = [
+    "Zend/tests",
+    "tests",
+    "ext/date/tests"
+    "ext/dom/tests"
+    "ext/libxml/tests",
+    "ext/json/tests",
+    "ext/phar/tests",
+    "ext/reflection/tests",
+    "ext/spl/tests",
+    "ext/sessions/tests",
+    "ext/simplexml/tests",
+    "ext/standard/tests",
+    "ext/sqlite3/tests"
+]
+
 
 def cmd(cmd):
     subprocess.check_call(cmd, shell=True)
@@ -35,9 +53,7 @@ if __name__ == "__main__":
 
     # handle nasty scenarios
     if bug_rev in NASTY_REVISIONS:
-        # recreate source
-        shutil.rmtree('/experiment/src')
-        cmd('git clone https://github.com/php/php-src /experiment/src')
+        cmd('cd /experiment/src && git reset --hard && git clean -fd')
         cmd('cd /experiment/src && git checkout "{}"'.format(bug_rev))
 
     # apply libxml fix
