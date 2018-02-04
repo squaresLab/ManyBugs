@@ -49,5 +49,5 @@ RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
 RUN rm -rf src/tests && \
     mv tests src/tests
 
-#RUN 
-#  ./configure "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32"
+# Preprocess the source code
+RUN ./preprocess
