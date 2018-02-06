@@ -49,8 +49,7 @@ RUN sed -i "s#${OLD_LOCATION}#/experiment#g" test.sh && \
     sed -i "s#/experiment/limit#timeout 5#g" test.sh && \
     sed -i "s#/usr/bin/perl#perl#g" test.sh && \
     sed -i 's#lt-\.\*#lt-\.\* \&\> /dev/null#g' test.sh && \
-    sed -i 's#cd lighttpd/tests#cd src/tests#g' test.sh && \
-    sed -i 's#perl compile.pl __EXE_NAME__ > /dev/null#./compile.sh __EXE_NAME__ &> /dev/null#g' configuration-default
+    sed -i 's#cd lighttpd/tests#cd src/tests#g' test.sh
 
 # fix an obnoxious bug in tests/core-request.t
 RUN sed -i 's#image.JPG#image.jpg#g' src/tests/core-request.t
