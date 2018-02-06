@@ -7,10 +7,6 @@ ENV FIX_COMMIT ${fix_commit}
 ENV SCENARIO_NAME lighttpd-bug-${BUG_COMMIT}-${FIX_COMMIT}
 ENV OLD_LOCATION /root/mountpoint-genprog/genprog-many-bugs/${SCENARIO_NAME}
 
-# 1. download and unextract the ManyBugs archive
-# 2. remove junk and tidy files
-# 3. reset svn to bug commit
-# 4. destroy redundant tests directory
 RUN cd /experiment && \
     wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO_NAME}.tar.gz \
           -O scenario.tar.gz && \
@@ -47,11 +43,6 @@ RUN cd /experiment && \
       svn revert --recursive . && \
     sudo chown -R docker /experiment
 
-# TODO: preprocess source code
-RUN cd src && \
-    ./configure && \
-    make -j$(nproc)
-
 # fix the test harness and the configuration script
 RUN sed -i "s#${OLD_LOCATION}#/experiment#g" test.sh && \
     sed -i "s#cd gmp#cd src#g" test.sh && \
@@ -63,3 +54,9 @@ RUN sed -i "s#${OLD_LOCATION}#/experiment#g" test.sh && \
 
 # fix an obnoxious bug in tests/core-request.t
 RUN sed -i 's#image.JPG#image.jpg#g' src/tests/core-request.t
+
+# compile program
+RUN ./preprocess && \
+    cd src && \
+    ./configure && \
+    make -j$(nproc)
