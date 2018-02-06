@@ -51,3 +51,6 @@ RUN cd src && \
 # Fix the GenProg configuration file
 RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
     sed -i "s#perl compile.pl#./compile.sh#"    configuration-default
+
+# compile the source code
+RUN cd src && make -j$(nproc)
