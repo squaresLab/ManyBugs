@@ -63,5 +63,5 @@ RUN ./preprocess && \
 # Fix the GenProg configuration file
 RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
     sed -i "s#perl compile.pl#./compile.sh#"    configuration-default && \
-    sed -i "s#> /dev/null#&> /dev/null#"        configuration-default && \
+    sed -i "s#> /dev/null#\&> /dev/null#"        configuration-default && \
     echo "--mt-cov" >> configuration-default
