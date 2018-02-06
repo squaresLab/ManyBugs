@@ -38,6 +38,9 @@ RUN cd /experiment/src && \
     make distclean && \
     cat /experiment/manifest.txt | git checkout && \
     ./configure && \
+    cd .. && \
+    ./preprocess --obj && \
+    cd src && \
     make -j $(nproc) && \
     rm -rf .git
 
