@@ -16,10 +16,9 @@ def mkdir_p(path):
         else:
             raise
 
-if len(sys.argv) == 2 and sys.argv[1] == '--obj':
-    option = '-save-temps=obj'
-else:
-    option = '-save-temps'
+
+obj_mode = len(sys.argv) == 2 and sys.argv[1] == '--obj'
+option = '-save-temps=obj' if obj_mode else '-save-temps'
 
 
 with open('/experiment/manifest.txt', 'r') as f:
@@ -36,8 +35,16 @@ subprocess.check_call('make clean && make -j$(nproc)', shell=True)
 
 # extract preprocessed files
 for fn in files:
-    fn_no_suffix = fn.rpartition('.')[0]
-    fn_preprocessed = os.path.join('/experiment/src/', fn_no_suffix + '.i')
+    fn_preprocessed = fn
+
+    # if we're not using the --obj flag, use the basename of the file
+    if not obj_mode:
+        fn_preprocessed = os.path.basename(fn)
+
+    # trim the suffix
+    fn_preprocessed = fn.rpartition('.')[0]
+
+    fn_preprocessed = os.path.join('/experiment/src/', fn_preprocessed + '.i')
     fn_dest = os.path.join('/experiment/preprocessed/', fn)
 
     # create necessary dirs
