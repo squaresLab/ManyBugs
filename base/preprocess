@@ -42,7 +42,7 @@ for fn in files:
         fn_preprocessed = os.path.basename(fn)
 
     # trim the suffix
-    fn_preprocessed = fn.rpartition('.')[0]
+    fn_preprocessed = fn_preprocessed.rpartition('.')[0]
 
     fn_preprocessed = os.path.join('/experiment/src/', fn_preprocessed + '.i')
     fn_dest = os.path.join('/experiment/preprocessed/', fn)
