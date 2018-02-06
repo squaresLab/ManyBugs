@@ -1,10 +1,10 @@
 bug: 69223-69224
 build:
   build-arguments:
-    scenario: python-bug-69368-69372
+    scenario: python-bug-69223-69224
   depends-on: squareslab/manybugs:python
   file: Dockerfile.bug
-  tag: squareslab/manybugs:python-69368-69372
+  tag: squareslab/manybugs:python-69223-69224
   type: docker
 compiler:
   time-limit: 300
