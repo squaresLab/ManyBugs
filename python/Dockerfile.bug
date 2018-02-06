@@ -45,17 +45,13 @@ RUN cd src && \
     hg update -r $(grep "bug revision:" ../bug-info/scenario-data.txt | cut -d " " -f3) && \
     hg revert -r $(grep "fix revision:" ../bug-info/scenario-data.txt | cut -d " " -f3) Lib/test
 
-# configure
-RUN cd src && \
-    ./configure CFLAGS="-fprofile-arcs -ftest-coverage -g" \
-                CXXFLAGS="-fprofile-arcs -ftest-coverage -g" \
-                LDFLAGS="-lgcov --coverage"
-
 # fix the GenProg config file
 RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
     sed -i "s#perl compile.pl#./compile.sh#"    configuration-default && \
-    sed -i "s#> /dev/null#\&> /dev/null#"        configuration-default && \
+    sed -i "s#> /dev/null#\&> /dev/null#"       configuration-default && \
     echo "--mt-cov" >> configuration-default
 
 # preprocess
-RUN ./preprocess
+RUN ./preprocess --base && \
+    cd src && \
+    make -j$(nproc)

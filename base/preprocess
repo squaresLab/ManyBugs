@@ -16,8 +16,9 @@ def mkdir_p(path):
         else:
             raise
 
-
-obj_mode = len(sys.argv) == 2 and sys.argv[1] == '--obj'
+opts = sys.argv[1:]
+obj_mode = '--obj' in opts
+base_mode = '--base' in opts
 option = '-save-temps=obj' if obj_mode else '-save-temps'
 
 
@@ -37,8 +38,7 @@ subprocess.check_call('make clean && make -j$(nproc)', shell=True)
 for fn in files:
     fn_preprocessed = fn
 
-    # if we're not using the --obj flag, use the basename of the file
-    if not obj_mode:
+    if base_mode:
         fn_preprocessed = os.path.basename(fn)
 
     # trim the suffix
