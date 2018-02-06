@@ -19,7 +19,7 @@ def mkdir_p(path):
 if len(sys.argv) == 2 and sys.argv[1] == '--obj':
     option = '-save-temps=obj'
 else:
-    option = 'save-temps'
+    option = '-save-temps'
 
 
 with open('/experiment/manifest.txt', 'r') as f:
