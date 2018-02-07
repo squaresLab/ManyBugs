@@ -54,6 +54,11 @@ RUN sed -i "s#${OLD_LOCATION}#/experiment#g" test.sh && \
 # fix an obnoxious bug in tests/core-request.t
 RUN sed -i 's#image.JPG#image.jpg#g' src/tests/core-request.t
 
+# fix broken symlinks
+RUN cd src/tests/tmp/lighttpd/servers/www.example.org/pages && \
+    rm symlinked && \
+    ln -s expire symlinked
+
 # compile program
 RUN ./preprocess && \
     cd src && \
