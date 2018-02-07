@@ -61,7 +61,7 @@ RUN cd src/tests/tmp/lighttpd/servers/www.example.org/pages && \
     ln -s index.html index.xhtml
 
 # fix broken test file
-ADD mod-cgi.t /src/tests/mod-cgi.t
+ADD mod-cgi.t /experiment/src/tests/mod-cgi.t
 
 # compile program
 RUN ./preprocess && \
