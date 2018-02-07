@@ -40,8 +40,10 @@ RUN cd /experiment && \
     cd /experiment/src && \
       make distclean && \
       svn upgrade && \
-      svn revert --recursive . && \
+      svn revert $(cat /experiment/manifest.txt) && \
     sudo chown -R docker /experiment
+
+  # svn revert --recursive .
 
 # fix the test harness and the configuration script
 RUN sed -i "s#${OLD_LOCATION}#/experiment#g" test.sh && \
