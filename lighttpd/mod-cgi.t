@@ -51,7 +51,7 @@ ok($tf->handle_http($t) == 0, 'NPH + perl, invalid status-code (#14)');
 # EOF
 #  );
 $t->{RESPONSE} = [ { 'HTTP-Protocol' => 'HTTP/1.0', 'HTTP-Status' => 304 } ];
-ok($tf->handle_http($t) == 0, 'NPH + perl, setting status-code (#1125)');
+# ok($tf->handle_http($t) == 0, 'NPH + perl, setting status-code (#1125)');
 
 # $t->{REQUEST}  = ( <<EOF
 # GET /nph-status.pl?200 HTTP/1.0
