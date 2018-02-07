@@ -1,3 +1,3 @@
 | **Scenario** | **Status** |
 |-----------|--------------------------------------------------------|
-| 69223-69224 | fails sanity check: p227 (`test_socket`) |
+| 69223-69224 | fails sanity check: p227 (`test_socket`), p285--292 |
