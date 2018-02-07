@@ -56,8 +56,9 @@ RUN sed -i 's#image.JPG#image.jpg#g' src/tests/core-request.t
 
 # fix broken symlinks
 RUN cd src/tests/tmp/lighttpd/servers/www.example.org/pages && \
-    rm symlinked && \
-    ln -s expire symlinked
+    rm symlinked index.xhtml && \
+    ln -s expire symlinked && \
+    ln -s index.html index.xhtml
 
 # compile program
 RUN ./preprocess && \
