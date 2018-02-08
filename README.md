@@ -4,11 +4,13 @@
 
 ## Installation
 
-The ManyBugs dataset is compatible with the
-[RepairBox](https://github.com/squaresLab/RepairBox) platform for conducting
-reproducible software engineering research. To install the ManyBugs dataset to
-your local machine, simply execute the following:
+The ManyBugs dataset is compatible with
+[BugZoo](https://github.com/squaresLab/BugZoo), a platform for studying
+historical software bugs. To install the ManyBugs dataset to your local
+machine, simply execute the following:
 
 ```
-repairbox source add https://github.com/ChrisTimperley/ManyBugs
+$ pip3 install --upgrade bugzoo
+$ bugzoo source add https://github.com/squaresLab/ManyBugs
+$ bugzoo source update
 ```
