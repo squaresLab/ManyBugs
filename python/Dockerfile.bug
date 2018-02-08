@@ -50,8 +50,8 @@ RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
     sed -i "s#> /dev/null#\&> /dev/null#"       configuration-default && \
     echo "--mt-cov" >> configuration-default
 
-# # disable 'test_create_connection' in 'test_socket'
-# RUN sed -i "s#def test_create_connection_timeout(self):#def test_create_connection(self):\n        return#" src/Lib/test/test_socket.py
+# disable 'test_create_connection' in 'test_socket'
+RUN sed -i "s#def test_create_connection_timeout(self):#def test_create_connection(self):\n        return#" src/Lib/test/test_socket.py
 
 # preprocess
 RUN ./preprocess --base && \
