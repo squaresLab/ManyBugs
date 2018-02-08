@@ -7,11 +7,6 @@ ENV FIX_COMMIT ${fix_commit}
 ENV SCENARIO_NAME gmp-bug-${BUG_COMMIT}-${FIX_COMMIT}
 ENV OLD_LOCATION /root/genprog-many-bugs/${SCENARIO_NAME}
 
-# 1. download and unextract the ManyBugs archive
-# 2. remove junk and tidy files
-# 3. reset hg to bug commit
-# 4. destroy redundant tests directory
-# 5. destroy hg info (TODO)
 RUN cd /experiment && \
     wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO_NAME}.tar.gz \
           -O scenario.tar.gz && \
@@ -22,6 +17,7 @@ RUN cd /experiment && \
     rm -rf  coverage* \
             configuration-oracle \
             local-root \
+            test_paths.txt \
             limit* \
             *.cache \
             *.debug.* \
@@ -30,23 +26,25 @@ RUN cd /experiment && \
             *~ \
             test \
             reconfigure \
+            tests \
             fixed-program.txt && \
-    mv bug-failures bug-info && \
-    mv bugged-program.txt manifest.txt && \
+    mv *-failures bug-info && \
     mv *.lines bug-info && \
-    mv fix-failures bug-info && \
+    mv bugged-program.txt manifest.txt && \
     mv gmp src && \
     cd ../ && \
     mv scenario/* /experiment && \
     rm -rf scenario && \
     cd /experiment && \
     rm -rf tests && \
-    cd /experiment/src && \
+
+# fix the source code
+RUN cd /experiment/src && \
     make distclean && \
-    hg revert -r${BUG_COMMIT} --all && \
+    hg revert -r${BUG_COMMIT} $(cat /experiment/manifest.txt) && \
     sudo chown -R docker /experiment
 
-ADD ltmain.sh src/
+# ADD ltmain.sh src/
 # Remove all references to tests/mpbsd/Makefile from configure.
 # Fixes: "config.status: error: cannot find input file: `tests/mpbsd/Makefile.in'"
 # Credit to Eduardo Souza (github.com/eduardodx)
