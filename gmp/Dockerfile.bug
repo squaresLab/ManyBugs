@@ -36,7 +36,7 @@ RUN cd /experiment && \
     mv scenario/* /experiment && \
     rm -rf scenario && \
     cd /experiment && \
-    rm -rf tests && \
+    rm -rf tests
 
 # fix the source code
 RUN cd /experiment/src && \
