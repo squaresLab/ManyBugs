@@ -11,8 +11,7 @@ RUN cd /experiment && \
     mv ${SCENARIO_NAME} scenario && \
     rm scenario.tar.gz && \
     cd scenario && \
-    rm -rf  python \
-            coverage* \
+    rm -rf  coverage* \
             configuration-oracle \
             local-root \
             limit* \
@@ -23,6 +22,7 @@ RUN cd /experiment && \
             *~ \
             test \
             fixed-program.txt && \
+    mv python src && \
     mv bug-failures bug-info && \
     mv bugged-program.txt manifest.txt && \
     mv *.lines bug-info && \
@@ -40,10 +40,9 @@ RUN sed -i "s/cd python/cd src/" test.sh && \
     sed -i "s#/usr/bin/perl#perl#" test.sh && \
     sed -i "s#&> /dev/null##" python-run-tests.pl
 
-# revert to bug commit
+# tidy the source code
 RUN cd src && \
-    hg update -r $(grep "bug revision:" ../bug-info/scenario-data.txt | cut -d " " -f3) && \
-    hg revert -r $(grep "fix revision:" ../bug-info/scenario-data.txt | cut -d " " -f3) Lib/test
+    hg revert $(cat /experiment/manifest.txt)
 
 # fix the GenProg config file
 RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
@@ -51,8 +50,8 @@ RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
     sed -i "s#> /dev/null#\&> /dev/null#"       configuration-default && \
     echo "--mt-cov" >> configuration-default
 
-# disable 'test_create_connection' in 'test_socket'
-RUN sed -i "s#def test_create_connection_timeout(self):#def test_create_connection(self):\n        return#" src/Lib/test/test_socket.py
+# # disable 'test_create_connection' in 'test_socket'
+# RUN sed -i "s#def test_create_connection_timeout(self):#def test_create_connection(self):\n        return#" src/Lib/test/test_socket.py
 
 # preprocess
 RUN ./preprocess --base && \
