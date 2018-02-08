@@ -22,4 +22,4 @@ RUN sudo apt-get update && \
     sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # clone Python repo
-RUN hg clone https://hg.python.org/cpython src
+# RUN hg clone https://hg.python.org/cpython src
