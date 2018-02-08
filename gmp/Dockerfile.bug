@@ -39,13 +39,6 @@ RUN cd /experiment && \
     rm -rf tests && \
     sudo chown -R docker /experiment
 
-# fix the source code
-RUN cd /experiment/src && \
-    make distclean && \
-    hg revert -r${BUG_COMMIT} $(cat /experiment/manifest.txt) && \
-    autoreconf --force --install
-
-# ADD ltmain.sh src/
 # Remove all references to tests/mpbsd/Makefile from configure.
 # Fixes: "config.status: error: cannot find input file: `tests/mpbsd/Makefile.in'"
 # Credit to Eduardo Souza (github.com/eduardodx)
@@ -54,10 +47,17 @@ RUN cd src &&  \
   sed "s#tests/mpbsd/Makefile ##g" | \
   sponge configure
 
+# fix the source code
+RUN cd /experiment/src && \
+    make distclean && \
+    hg revert -r${BUG_COMMIT} $(cat /experiment/manifest.txt) && \
+    ./configure && \
+    if [ "${BUG_COMMIT}" -eq "14166" ]; then autoreconf --force --install; fi
+
 # configure and compile
 RUN cd src && \
     ./configure && \
-    make -j$(nproc)
+    make
 
 # fix the test harness
 RUN sed -i "s#${OLD_LOCATION}#/experiment#g" test.sh && \
