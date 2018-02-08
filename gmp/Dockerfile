@@ -6,4 +6,5 @@ RUN sudo apt-get update && \
                                                     m4 \
                                                     libc6-dev-i386 \
                                                     libtool \
-                                                    autoconf
+                                                    autoconf \
+                                                    automake
