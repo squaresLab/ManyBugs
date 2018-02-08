@@ -36,8 +36,7 @@ RUN wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO
 # fix the source code
 RUN cd /experiment/src && \
     make distclean && \
-    cat /experiment/manifest.txt | git checkout && \
-    ./configure && \
+    git checkout $(cat /experiment/manifest) && \
     cd .. && \
     ./preprocess --obj && \
     cd src && \
