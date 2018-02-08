@@ -1,11 +1,26 @@
 | **Scenario** | **Status** |
 |-----------|--------------------------------------------------------|
-| 2006-02-27-6074705-e6d0c32 | fails sanity check: p4, p8, p9 |
+| 2005-12-14-6746b87-0d3d51d | OK | 
+| 2005-12-21-3b848a7-3edb9cd | OK |
+| 2005-12-27-6f76e76-5dac30f | OK  |
+| 2006-02-23-b2ce5d8-207c78a | OK |
+| 2006-02-27-6074705-e6d0c32 | OK |
+| 2006-03-03-a72cf60-0a36d7f | OK |
+| 2006-03-03-eec4c06-ee65c74 | OK |
 | 2007-07-08-bd2f947-ccc10c7 | fails compilation |
-| 2007-11-02-371336d-865f7b2 | fails sanity check: p1--3, p5--16, p23--60 |
-| 2007-11-23-82e378c-cf05a83 | fails sanity check: all except n1, p17, and p4 |
-| 2008-09-05-d59e7df-5f42dba | fails sanity check: p20, p26, p27, p28, p29, p30, p31, p32, p33, p34 |
-| 2009-09-03-6406250-6b6496b | fails sanity check: p29--63 |
+| 2007-07-08-c766cb7-0cc95fb | fails compilation |
+| 2007-07-13-09e8220-f2d989d | OK |
+| 2007-07-19-ce4b7af-7d6e298 | OK |
+| 2007-08-24-827b6bc-22da1d6 | OK |
+| 2007-11-02-371336d-865f7b2 | OK |
+| 2007-11-23-82e378c-cf05a83 | OK |
+| 2008-04-15-2e8b2f1-0d27dc0 | OK |
+| 2008-09-05-d59e7df-5f42dba | fails sanity check: p26--34 |
+| 2008-12-30-362dee5-565eaa2 | fails sanity check: p27--35 |
+| 2009-02-05-764dbba-2e42d63 | OK |
+| 2009-06-30-b44af47-e0b51f3 | OK |
+| 2009-08-28-e8a47d4-023b6df | OK |
+| 2009-09-03-6406250-6b6496b | OK |
 | 2010-06-30-1563270-1136bdf | OK |
 | 2010-11-27-eb326f9-eec7ec0 | OK |
-| 2010-12-13-96a5fb4-bdba15c | fails sanity check: p29--67 |
+| 2010-12-13-96a5fb4-bdba15c | OK |
