@@ -28,6 +28,7 @@ RUN wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO
             sanity \
             *debug* \
             compile.pl \
+            tests \
             local-root && \
     mv fix-failures bug-info && \
     mv bug-failures bug-info && \
@@ -43,7 +44,7 @@ RUN wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO
     sed -i "s#/experiment/limit#timeout 5#g" test.sh
 
 RUN cd src && \
-    git checkout $(grep "bug revision:" ../bug-info/scenario-data.txt | cut -d " " -f3) && \
+    git checkout $(cat /experiment/manifest.txt) && \
     ./bootstrap && \
     ./configure && \
     sed -i "s#_GL_WARN_ON_USE (gets,#//#g" lib/stdio.in.h && \
@@ -53,9 +54,10 @@ RUN cd src && \
 RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
     sed -i "s#perl compile.pl#./compile.sh#"    configuration-default
 
-# Replace the test suite
-RUN rm -rf src/tests && \
-    mv tests src/tests
+# # Replace the test suite
+# RUN rm -rf src/tests && \
+#     mv tests src/tests
+#
 
 # Preprocess the source code
 RUN ./preprocess
