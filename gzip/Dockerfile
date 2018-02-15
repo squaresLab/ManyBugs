@@ -9,11 +9,9 @@ RUN sudo apt-get update && \
       gettext \
       autopoint \
       texinfo \
-      psmisc \
-      gcc-multilib && \
+      psmisc && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN git clone git://git.savannah.gnu.org/gzip.git src
 ENV PERLBREW_ROOT "/home/docker/perl5/perlbrew"
 ENV PERLBREW_HOME "/home/docker/.perlbrew"
 ENV PERLBREW_PATH "${PERLBREW_ROOT}/bin"

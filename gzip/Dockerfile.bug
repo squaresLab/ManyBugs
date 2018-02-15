@@ -20,13 +20,21 @@ RUN wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO
     rm -f scenario.tar.gz && \
     mv gzip-* scenario && \
     cd scenario && \
-    rm -rf fixed-program.txt *.cache coverage.* coverage limit* sanity *debug* compile.pl local-root && \
-    rm -rf gzip configuration-oracle *~ && \
+    rm -rf  fixed-program.txt \
+            *.cache \
+            coverage.* \
+            coverage \
+            limit* \
+            sanity \
+            *debug* \
+            compile.pl \
+            local-root && \
     mv fix-failures bug-info && \
     mv bug-failures bug-info && \
     mv fix.lines bug-info && \
     mv fault.lines bug-info && \
     mv bugged-program.txt manifest.txt && \
+    mv gzip src && \
     cd /experiment && \
     mv scenario/* . && rm -rf scenario && \
     sed -i "s#cd gzip#cd src#g" test.sh && \
