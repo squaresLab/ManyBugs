@@ -51,7 +51,8 @@ RUN cd src && \
     sudo chown -R docker /experiment
 
 # Fix the Makefile in the tests directory
-RUN sed -i "s#${OLD_LOCATION}/gzip#/experiment/source#g" src/tests/Makefile
+RUN sed -i "s#${OLD_LOCATION}/gzip#/experiment/source#g" src/tests/Makefile && \
+    sed -i "s#\$abs_srcdir#/experiment/src/tests#g" src/tests/hufts
 
 # Fix the GenProg configuration file
 RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
