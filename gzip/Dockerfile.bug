@@ -45,6 +45,7 @@ RUN wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO
 
 RUN cd src && \
     git checkout $(cat /experiment/manifest.txt) && \
+    make distclean && \
     ./bootstrap && \
     ./configure && \
     sed -i "s#_GL_WARN_ON_USE (gets,#//#g" lib/stdio.in.h && \
