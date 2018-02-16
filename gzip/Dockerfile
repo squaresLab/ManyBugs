@@ -9,6 +9,7 @@ RUN sudo apt-get update && \
       gettext \
       autopoint \
       texinfo \
+      gcc-multilib \
       psmisc && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
