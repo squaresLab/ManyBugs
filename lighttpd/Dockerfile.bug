@@ -50,8 +50,8 @@ RUN sed -i "s#${OLD_LOCATION}#/experiment#g" test.sh && \
     sed -i "s#/usr/bin/perl#perl#g" test.sh && \
     sed -i 's#lt-\.\*#lt-\.\* \&\> /dev/null#g' test.sh && \
     sed -i 's#cd lighttpd/tests#cd src/tests#g' test.sh && \
-    sed -i 's#cd src/tests#pushd /experiment/src/tests#g' && \
-    sed -i 's#cd ../../#popd &> /dev/null#g'
+    sed -i 's#cd src/tests#pushd /experiment/src/tests#g' test.sh && \
+    sed -i 's#cd ../../#popd &> /dev/null#g' test.sh
 
 # fix an obnoxious bug in tests/core-request.t
 RUN sed -i 's#image.JPG#image.jpg#g' src/tests/core-request.t
