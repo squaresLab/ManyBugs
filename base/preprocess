@@ -63,7 +63,7 @@ def preprocess(obj_mode, base_mode, use_m32):
     cmd = cmd.format(cflags, cxxflags, ldflags)
 
     subprocess.check_call('make clean', shell=True)
-    subprocess.check_call('./configure', shell=True)
+    subprocess.check_call(cmd, shell=True)
 
     for root, dirs, files in os.walk('/experiment/src'):
         for fn in files:
