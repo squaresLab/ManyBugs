@@ -38,7 +38,7 @@ RUN cd /experiment/src && \
     make distclean && \
     git checkout $(cat /experiment/manifest.txt) && \
     cd .. && \
-    ./preprocess --obj && \
+    ./preprocess --m32 --obj && \
     cd src && \
     make -j $(nproc) && \
     rm -rf .git
