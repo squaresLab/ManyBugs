@@ -8,4 +8,5 @@ RUN sudo apt-get update && \
                                                     libxml2-dev \
                                                     libsqlite3-dev \
                                                     libldap-dev \
-                                                    libbz2-dev
+                                                    libbz2-dev \
+                                                    libssl-dev
