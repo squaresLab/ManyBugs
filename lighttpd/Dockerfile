@@ -9,4 +9,5 @@ RUN sudo apt-get update && \
                                                     libsqlite3-dev \
                                                     libldap-dev \
                                                     libbz2-dev \
-                                                    libssl-dev
+                                                    libssl-dev \
+                                                    libgdbm-dev
