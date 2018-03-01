@@ -5,5 +5,5 @@ RUN sudo apt-get update && \
     sudo apt-get install --no-install-recommends -y subversion \
                                                     m4 \
                                                     libglib2.0-dev \
-                                                    libxml2-dev && \
+                                                    libxml2-dev \
                                                     libsqlite3-dev
