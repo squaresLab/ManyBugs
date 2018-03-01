@@ -7,4 +7,5 @@ RUN sudo apt-get update && \
                                                     libglib2.0-dev \
                                                     libxml2-dev \
                                                     libsqlite3-dev \
-                                                    libldap-dev
+                                                    libldap-dev \
+                                                    libbz2-dev
