@@ -66,9 +66,8 @@ RUN cd src/tests/tmp/lighttpd/servers/www.example.org/pages && \
 ADD mod-cgi.t /experiment/src/tests/mod-cgi.t
 
 # compile program
-RUN ./preprocess && \
+RUN ./preprocess --cfg "--with-ldap --with-bzip2 --with-openssl --with-gdbm --with-memcache --with-webdav-props --with-webdav-locks" && \
     cd src && \
-    ./configure && \
     make
 
 # Fix the GenProg configuration file
