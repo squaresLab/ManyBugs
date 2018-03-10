@@ -1,0 +1,32 @@
+version: "1.0"
+
+blueprints:
+  - type: docker
+    tag: squareslab/manybugs:gzip
+    file: Dockerfile
+    depends-on: squareslab/manybugs:base
+
+  - type: docker
+    tag: squareslab/manybugs:gzip-2009-08-16-3fe0caeada-39a362ae9d
+    file: Dockerfile.bug
+    depends-on: squareslab/manybugs:gzip
+    arguments:
+      perl: 5.8.9
+      scenario: gzip-bug-2009-08-16-3fe0caeada-39a362ae9d
+
+bugs:
+  - name: manybugs:gzip:2009-08-16-3fe0caeada-39a362ae9d
+    image: squareslab/manybugs:gzip-2009-08-16-3fe0caeada-39a362ae9d
+    program: gzip
+    dataset: manybugs
+    source-location: /experiment/src
+    languages:
+    - c
+    compiler:
+      type: configure-and-make
+      time-limit: 300
+    test-harness:
+      type: genprog
+      failing: 1
+      passing: 2
+      time-limit: 300
