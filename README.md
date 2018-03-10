@@ -11,6 +11,6 @@ machine, simply execute the following:
 
 ```
 $ pip3 install --upgrade bugzoo
-$ bugzoo source add https://github.com/squaresLab/ManyBugs
+$ bugzoo source add manybugs https://github.com/squaresLab/ManyBugs
 $ bugzoo source update
 ```
