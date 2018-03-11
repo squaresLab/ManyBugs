@@ -1,0 +1,325 @@
+version: "1.0"
+
+blueprints:
+  - type: docker
+    tag: squareslab/manybugs:python
+    file: Dockerfile
+    context: .
+    depends-on: squareslab/manybugs:base
+  - arguments:
+      scenario: python-bug-69223-69224
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69223-69224
+    type: docker
+  - arguments:
+      scenario: python-bug-70098-70101
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-70098-70101
+    type: docker
+  - arguments:
+      scenario: python-bug-69831-69833
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69831-69833
+    type: docker
+  - arguments:
+      scenario: python-bug-70019-70023
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-70019-70023
+    type: docker
+  - arguments:
+      scenario: python-bug-70056-70059
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-70056-70059
+    type: docker
+  - arguments:
+      scenario: python-bug-69945-69946
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69945-69946
+    type: docker
+  - arguments:
+      scenario: python-bug-69783-69784
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69783-69784
+    type: docker
+  - arguments:
+      scenario: python-bug-69785-69789
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69785-69789
+    type: docker
+  - arguments:
+      scenario: python-bug-69368-69372
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69368-69372
+    type: docker
+  - arguments:
+      scenario: python-bug-69709-69710
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69709-69710
+    type: docker
+  - arguments:
+      scenario: python-bug-70120-70124
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-70120-70124
+    type: docker
+  - arguments:
+      scenario: python-bug-69470-69474
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69470-69474
+    type: docker
+  - arguments:
+      scenario: python-bug-69934-69935
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69934-69935
+    type: docker
+  - arguments:
+      scenario: python-bug-69740-69743
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69740-69743
+    type: docker
+  - arguments:
+      scenario: python-bug-69609-69616
+    depends-on: squareslab/manybugs:python
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:python-69609-69616
+    type: docker
+
+bugs:
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69223-69224
+    languages:
+    - c
+    name: manybugs:python:69223-69224
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 292
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-70098-70101
+    languages:
+    - c
+    name: manybugs:python:70098-70101
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 319
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69831-69833
+    languages:
+    - c
+    name: manybugs:python:69831-69833
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 304
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-70019-70023
+    languages:
+    - c
+    name: manybugs:python:70019-70023
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 315
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-70056-70059
+    languages:
+    - c
+    name: manybugs:python:70056-70059
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 318
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69945-69946
+    languages:
+    - c
+    name: manybugs:python:69945-69946
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 313
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69783-69784
+    languages:
+    - c
+    name: manybugs:python:69783-69784
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 302
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69785-69789
+    languages:
+    - c
+    name: manybugs:python:69785-69789
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 303
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69368-69372
+    languages:
+    - c
+    name: manybugs:python:69368-69372
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 292
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69709-69710
+    languages:
+    - c
+    name: manybugs:python:69709-69710
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 300
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-70120-70124
+    languages:
+    - c
+    name: manybugs:python:70120-70124
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 319
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69470-69474
+    languages:
+    - c
+    name: manybugs:python:69470-69474
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 296
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69934-69935
+    languages:
+    - c
+    name: manybugs:python:69934-69935
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 312
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69740-69743
+    languages:
+    - c
+    name: manybugs:python:69740-69743
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 301
+      time-limit: 600
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:python-69609-69616
+    languages:
+    - c
+    name: manybugs:python:69609-69616
+    program: python
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 295
+      time-limit: 600
+      type: genprog
