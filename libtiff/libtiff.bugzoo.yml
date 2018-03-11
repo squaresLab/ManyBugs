@@ -1,0 +1,514 @@
+version: "1.0"
+
+blueprints:
+  - type: docker
+    tag: squareslab/manybugs:libtiff
+    file: Dockerfile
+    context: .
+    depends-on: squareslab/manybugs:base
+  - arguments:
+      scenario: libtiff-bug-2006-03-03-a72cf60-0a36d7f
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2006-03-03-a72cf60-0a36d7f
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2008-04-15-2e8b2f1-0d27dc0
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2008-04-15-2e8b2f1-0d27dc0
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2009-02-05-764dbba-2e42d63
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2009-02-05-764dbba-2e42d63
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2006-02-23-b2ce5d8-207c78a
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2006-02-23-b2ce5d8-207c78a
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2009-08-28-e8a47d4-023b6df
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2009-08-28-e8a47d4-023b6df
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2007-11-23-82e378c-cf05a83
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2007-11-23-82e378c-cf05a83
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2007-08-24-827b6bc-22da1d6
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2007-08-24-827b6bc-22da1d6
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2007-07-19-ce4b7af-7d6e298
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2007-07-19-ce4b7af-7d6e298
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2008-09-05-d59e7df-5f42dba
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2008-09-05-d59e7df-5f42dba
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2009-06-30-b44af47-e0b51f3
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2009-06-30-b44af47-e0b51f3
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2005-12-27-6f76e76-5dac30f
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2005-12-27-6f76e76-5dac30f
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2010-06-30-1563270-1136bdf
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2010-06-30-1563270-1136bdf
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2007-07-13-09e8220-f2d989d
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2007-07-13-09e8220-f2d989d
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2005-12-21-3b848a7-3edb9cd
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2005-12-21-3b848a7-3edb9cd
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2005-12-14-6746b87-0d3d51d
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2005-12-14-6746b87-0d3d51d
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2010-11-27-eb326f9-eec7ec0
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2010-11-27-eb326f9-eec7ec0
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2008-12-30-362dee5-565eaa2
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2008-12-30-362dee5-565eaa2
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2007-07-08-bd2f947-ccc10c7
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2007-07-08-bd2f947-ccc10c7
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2006-03-03-eec4c06-ee65c74
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2006-03-03-eec4c06-ee65c74
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2009-09-03-6406250-6b6496b
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2009-09-03-6406250-6b6496b
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2007-11-02-371336d-865f7b2
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2007-11-02-371336d-865f7b2
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2010-12-13-96a5fb4-bdba15c
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2010-12-13-96a5fb4-bdba15c
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2006-02-27-6074705-e6d0c32
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2006-02-27-6074705-e6d0c32
+    type: docker
+  - arguments:
+      scenario: libtiff-bug-2007-07-08-c766cb7-0cc95fb
+    depends-on: squareslab/manybugs:libtiff
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:libtiff-2007-07-08-c766cb7-0cc95fb
+    type: docker
+
+bugs:
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2006-03-03-a72cf60-0a36d7f
+    languages:
+    - c
+    name: manybugs:libtiff:2006-03-03-a72cf60-0a36d7f
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 5
+      passing: 31
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2008-04-15-2e8b2f1-0d27dc0
+    languages:
+    - c
+    name: manybugs:libtiff:2008-04-15-2e8b2f1-0d27dc0
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 61
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2009-02-05-764dbba-2e42d63
+    languages:
+    - c
+    name: manybugs:libtiff:2009-02-05-764dbba-2e42d63
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 9
+      passing: 64
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2006-02-23-b2ce5d8-207c78a
+    languages:
+    - c
+    name: manybugs:libtiff:2006-02-23-b2ce5d8-207c78a
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 34
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2009-08-28-e8a47d4-023b6df
+    languages:
+    - c
+    name: manybugs:libtiff:2009-08-28-e8a47d4-023b6df
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 73
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2007-11-23-82e378c-cf05a83
+    languages:
+    - c
+    name: manybugs:libtiff:2007-11-23-82e378c-cf05a83
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 60
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2007-08-24-827b6bc-22da1d6
+    languages:
+    - c
+    name: manybugs:libtiff:2007-08-24-827b6bc-22da1d6
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 2
+      passing: 59
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2007-07-19-ce4b7af-7d6e298
+    languages:
+    - c
+    name: manybugs:libtiff:2007-07-19-ce4b7af-7d6e298
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 2
+      passing: 59
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2008-09-05-d59e7df-5f42dba
+    languages:
+    - c
+    name: manybugs:libtiff:2008-09-05-d59e7df-5f42dba
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 62
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2009-06-30-b44af47-e0b51f3
+    languages:
+    - c
+    name: manybugs:libtiff:2009-06-30-b44af47-e0b51f3
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 73
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2005-12-27-6f76e76-5dac30f
+    languages:
+    - c
+    name: manybugs:libtiff:2005-12-27-6f76e76-5dac30f
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 34
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2010-06-30-1563270-1136bdf
+    languages:
+    - c
+    name: manybugs:libtiff:2010-06-30-1563270-1136bdf
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 76
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2007-07-13-09e8220-f2d989d
+    languages:
+    - c
+    name: manybugs:libtiff:2007-07-13-09e8220-f2d989d
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 60
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2005-12-21-3b848a7-3edb9cd
+    languages:
+    - c
+    name: manybugs:libtiff:2005-12-21-3b848a7-3edb9cd
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 2
+      passing: 33
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2005-12-14-6746b87-0d3d51d
+    languages:
+    - c
+    name: manybugs:libtiff:2005-12-14-6746b87-0d3d51d
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 2
+      passing: 33
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2010-11-27-eb326f9-eec7ec0
+    languages:
+    - c
+    name: manybugs:libtiff:2010-11-27-eb326f9-eec7ec0
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 76
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2008-12-30-362dee5-565eaa2
+    languages:
+    - c
+    name: manybugs:libtiff:2008-12-30-362dee5-565eaa2
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 63
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2007-07-08-bd2f947-ccc10c7
+    languages:
+    - c
+    name: manybugs:libtiff:2007-07-08-bd2f947-ccc10c7
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 44
+      passing: 16
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2006-03-03-eec4c06-ee65c74
+    languages:
+    - c
+    name: manybugs:libtiff:2006-03-03-eec4c06-ee65c74
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 5
+      passing: 31
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2009-09-03-6406250-6b6496b
+    languages:
+    - c
+    name: manybugs:libtiff:2009-09-03-6406250-6b6496b
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 4
+      passing: 73
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2007-11-02-371336d-865f7b2
+    languages:
+    - c
+    name: manybugs:libtiff:2007-11-02-371336d-865f7b2
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 60
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2010-12-13-96a5fb4-bdba15c
+    languages:
+    - c
+    name: manybugs:libtiff:2010-12-13-96a5fb4-bdba15c
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 77
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2006-02-27-6074705-e6d0c32
+    languages:
+    - c
+    name: manybugs:libtiff:2006-02-27-6074705-e6d0c32
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 35
+      time-limit: 300
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:libtiff-2007-07-08-c766cb7-0cc95fb
+    languages:
+    - c
+    name: manybugs:libtiff:2007-07-08-c766cb7-0cc95fb
+    program: libtiff
+    source-location: /experiment/src
+    test-harness:
+      failing: 44
+      passing: 16
+      time-limit: 300
+      type: genprog

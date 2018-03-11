@@ -1,5 +1,0 @@
-type: docker
-tag: squareslab/manybugs:wireshark
-file: Dockerfile
-context: .
-depends-on: squareslab/manybugs:base

@@ -1,0 +1,178 @@
+version: "1.0"
+
+blueprints:
+  - type: docker
+    tag: squareslab/manybugs:wireshark
+    file: Dockerfile
+    context: .
+    depends-on: squareslab/manybugs:base
+  - arguments:
+      scenario: wireshark-bug-37122-37123
+    depends-on: squareslab/manybugs:wireshark
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:wireshark-37122-37123
+    type: docker
+  - arguments:
+      scenario: wireshark-bug-37190-37191
+    depends-on: squareslab/manybugs:wireshark
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:wireshark-37190-37191
+    type: docker
+  - arguments:
+      scenario: wireshark-bug-35419-35414
+    depends-on: squareslab/manybugs:wireshark
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:wireshark-35419-35414
+    type: docker
+  - arguments:
+      scenario: wireshark-bug-37172-37173
+    depends-on: squareslab/manybugs:wireshark
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:wireshark-37172-37173
+    type: docker
+  - arguments:
+      scenario: wireshark-bug-37171-37170
+    depends-on: squareslab/manybugs:wireshark
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:wireshark-37171-37170
+    type: docker
+  - arguments:
+      scenario: wireshark-bug-37112-37111
+    depends-on: squareslab/manybugs:wireshark
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:wireshark-37112-37111
+    type: docker
+  - arguments:
+      scenario: wireshark-bug-37172-37171
+    depends-on: squareslab/manybugs:wireshark
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:wireshark-37172-37171
+    type: docker
+  - arguments:
+      scenario: wireshark-bug-35419-35414
+    depends-on: squareslab/manybugs:wireshark
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:wireshark-35419-35414
+    type: docker
+
+bugs:
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:wireshark-37122-37123
+    languages:
+    - c
+    name: manybugs:wireshark:37122-37123
+    program: wireshark
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 60
+      time-limit: 25
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:wireshark-37190-37191
+    languages:
+    - c
+    name: manybugs:wireshark:37190-37191
+    program: wireshark
+    source-location: /experiment/src
+    test-harness:
+      failing: 4
+      passing: 57
+      time-limit: 25
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:wireshark-35419-35414
+    languages:
+    - c
+    name: manybugs:wireshark:35419-35414
+    program: wireshark
+    source-location: /experiment/src
+    test-harness:
+      failing: 52
+      passing: 7
+      time-limit: 25
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:wireshark-37172-37173
+    languages:
+    - c
+    name: manybugs:wireshark:37172-37173
+    program: wireshark
+    source-location: /experiment/src
+    test-harness:
+      failing: 2
+      passing: 55
+      time-limit: 25
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:wireshark-37171-37170
+    languages:
+    - c
+    name: manybugs:wireshark:37171-37170
+    program: wireshark
+    source-location: /experiment/src
+    test-harness:
+      failing: 4
+      passing: 57
+      time-limit: 25
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:wireshark-37112-37111
+    languages:
+    - c
+    name: manybugs:wireshark:37112-37111
+    program: wireshark
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 60
+      time-limit: 25
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:wireshark-37172-37171
+    languages:
+    - c
+    name: manybugs:wireshark:37172-37171
+    program: wireshark
+    source-location: /experiment/src
+    test-harness:
+      failing: 2
+      passing: 55
+      time-limit: 25
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:wireshark-35419-35414
+    languages:
+    - c
+    name: manybugs:wireshark:35419-35414
+    program: wireshark
+    source-location: /experiment/src
+    test-harness:
+      failing: 2
+      passing: 59
+      time-limit: 25
+      type: genprog

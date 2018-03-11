@@ -1,0 +1,57 @@
+version: "1.0"
+
+blueprints:
+  - type: docker
+    tag: squareslab/manybugs:gmp
+    file: Dockerfile
+    context: .
+    depends-on: squareslab/manybugs:base
+
+  - type: docker
+    tag: squareslab/manybugs:gmp-13420-13421
+    file: Dockerfile.bug
+    depends-on: squareslab/manybugs:gmp
+    arguments:
+      bug_commit: 13420
+      fix_commit: 13421
+
+  - type: docker
+    tag: squareslab/manybugs:gmp-14166-14167
+    file: Dockerfile.bug
+    depends-on: squareslab/manybugs:gmp
+    arguments:
+      bug_commit: 14166
+      fix_commit: 14167
+
+bugs:
+  - name: manybugs:gmp:13420-13421
+    program: gmp
+    dataset: manybugs
+    image: squareslab/manybugs:gmp-13420-13421
+    source-location: /experiment/src
+    languages:
+      - c
+    compiler:
+      time-limit: 300
+      type: configure-and-make
+    test-harness:
+      failing: 3
+      passing: 140
+      time-limit: 25
+      type: genprog
+
+  - name: manybugs:gmp:14166-14167
+    program: gmp
+    dataset: manybugs
+    image: squareslab/manybugs:gmp-14166-14167
+    source-location: /experiment/src
+    languages:
+      - c
+    compiler:
+      time-limit: 300
+      type: configure-and-make
+    test-harness:
+      failing: 1
+      passing: 144
+      time-limit: 25
+      type: genprog

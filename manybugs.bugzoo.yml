@@ -1,0 +1,7 @@
+version: "1.0"
+
+blueprints:
+  - type: docker
+    tag: squareslab/manybugs:base
+    file: Dockerfile
+    context: .

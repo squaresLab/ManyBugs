@@ -1,0 +1,208 @@
+version: "1.0"
+
+blueprints:
+  - type: docker
+    tag: squareslab/manybugs:lighttpd
+    file: Dockerfile
+    context: .
+    depends-on: squareslab/manybugs:base
+  - arguments:
+      bug_commit: 1806
+      fix_commit: 1807
+    depends-on: squareslab/manybugs:lighttpd
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:lighttpd-1806-1807
+    type: docker
+  - arguments:
+      bug_commit: 2785
+      fix_commit: 2786
+    depends-on: squareslab/manybugs:lighttpd
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:lighttpd-2785-2786
+    type: docker
+  - arguments:
+      bug_commit: 2330
+      fix_commit: 2331
+    depends-on: squareslab/manybugs:lighttpd
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:lighttpd-2330-2331
+    type: docker
+  - arguments:
+      bug_commit: 1948
+      fix_commit: 1949
+    depends-on: squareslab/manybugs:lighttpd
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:lighttpd-1948-1949
+    type: docker
+  - arguments:
+      bug_commit: 2254
+      fix_commit: 2259
+    depends-on: squareslab/manybugs:lighttpd
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:lighttpd-2254-2259
+    type: docker
+  - arguments:
+      bug_commit: 1794
+      fix_commit: 1795
+    depends-on: squareslab/manybugs:lighttpd
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:lighttpd-1794-1795
+    type: docker
+  - arguments:
+      bug_commit: 2661
+      fix_commit: 2662
+    depends-on: squareslab/manybugs:lighttpd
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:lighttpd-2661-2662
+    type: docker
+  - arguments:
+      bug_commit: 2225
+      fix_commit: 2226
+    depends-on: squareslab/manybugs:lighttpd
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:lighttpd-2225-2226
+    type: docker
+  - arguments:
+      bug_commit: 1913
+      fix_commit: 1914
+    depends-on: squareslab/manybugs:lighttpd
+    file: Dockerfile.bug
+    tag: squareslab/manybugs:lighttpd-1913-1914
+    type: docker
+
+bugs:
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:lighttpd-1806-1807
+    languages:
+    - c
+    name: manybugs:lighttpd:1806-1807
+    program: lighttpd
+    source-location: /experiment/src
+    test-harness:
+      failing: 12
+      passing: 5
+      time-limit: 10
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:lighttpd-2785-2786
+    languages:
+    - c
+    name: manybugs:lighttpd:2785-2786
+    program: lighttpd
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 20
+      time-limit: 10
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:lighttpd-2330-2331
+    languages:
+    - c
+    name: manybugs:lighttpd:2330-2331
+    program: lighttpd
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 19
+      time-limit: 10
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:lighttpd-1948-1949
+    languages:
+    - c
+    name: manybugs:lighttpd:1948-1949
+    program: lighttpd
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 17
+      time-limit: 10
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:lighttpd-2254-2259
+    languages:
+    - c
+    name: manybugs:lighttpd:2254-2259
+    program: lighttpd
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 18
+      time-limit: 10
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:lighttpd-1794-1795
+    languages:
+    - c
+    name: manybugs:lighttpd:1794-1795
+    program: lighttpd
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 4
+      time-limit: 10
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:lighttpd-2661-2662
+    languages:
+    - c
+    name: manybugs:lighttpd:2661-2662
+    program: lighttpd
+    source-location: /experiment/src
+    test-harness:
+      failing: 2
+      passing: 18
+      time-limit: 10
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:lighttpd-2225-2226
+    languages:
+    - c
+    name: manybugs:lighttpd:2225-2226
+    program: lighttpd
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 17
+      time-limit: 10
+      type: genprog
+  - compiler:
+      time-limit: 300
+      type: configure-and-make
+    dataset: manybugs
+    image: squareslab/manybugs:lighttpd-1913-1914
+    languages:
+    - c
+    name: manybugs:lighttpd:1913-1914
+    program: lighttpd
+    source-location: /experiment/src
+    test-harness:
+      failing: 1
+      passing: 17
+      time-limit: 10
+      type: genprog
