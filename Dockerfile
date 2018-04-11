@@ -37,6 +37,7 @@ RUN sudo apt-get update && \
                           python3-setuptools \
                           python \
                           software-properties-common \
+                          gcovr \
                           libncurses5-dev && \
     sudo apt-get autoremove -y && \
     sudo apt-get clean && \
