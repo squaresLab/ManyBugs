@@ -100,4 +100,6 @@ RUN cd src && \
     rm -f all-tests.tar.gz
 
 # build
-RUN bear ./compile.sh
+RUN cd src \
+ && make clean \
+ && bear make -j4
