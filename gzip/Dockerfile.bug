@@ -1,8 +1,15 @@
 FROM squareslab/manybugs:gzip
 
 ARG perl
-RUN perlbrew install "perl-${perl}" && \
-    perlbrew use "perl-${perl}"
+RUN wget -O - https://install.perlbrew.pl | bash -f && \
+    source ~/perl5/perlbrew/etc/bashrc && perlbrew init && \
+    echo "source ~/perl5/perlbrew/etc/bashrc" >> ~/.profile && \
+    perlbrew -f install-patchperl && \
+    perlbrew -f install perl-${perl} && \
+    perlbrew switch "perl-${perl}" 
+
+#RUN perlbrew install "perl-${perl}" && \
+#    perlbrew use "perl-${perl}"
 ENV PERLBREW_PERL "perl-${perl}"
 ENV PATH "${PERLBREW_ROOT}/perls/perl-${perl}/bin:${PATH}"
 
@@ -46,6 +53,8 @@ RUN wget  -nv http://repairbenchmarks.cs.umass.edu/ManyBugs/scenarios/${SCENARIO
 RUN cd src && \
     git checkout $(cat /experiment/manifest.txt) && \
     make distclean && \
+    wget https://raw.githubusercontent.com/gnutls/gnutls/master/bootstrap -O bootstrap && \
+    chmod +x bootstrap && \
     ./bootstrap && \
     ./configure CFLAGS="-m32" LDFLAGS="-m32" CXXFLAGS="-m32" && \
     sed -i "s#_GL_WARN_ON_USE (gets,#//#g" lib/stdio.in.h && \
