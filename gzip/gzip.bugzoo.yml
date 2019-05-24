@@ -1,10 +1,6 @@
 version: "1.0"
 
 blueprints:
-  - type: docker
-    tag: squareslab/manybugs:gzip
-    file: Dockerfile
-    depends-on: squareslab/manybugs:base
   - arguments:
       perl: 5.10.1
       scenario: gzip-bug-2009-09-26-a1d3d4019d-f17cbd13a1

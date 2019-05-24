@@ -1,8 +1,6 @@
 FROM ubuntu:16.04
 MAINTAINER Chris Timperley "christimperley@gmail.com"
 
-#---------------------------------
-# start of gzip equivalent of my_manybugs:base
 
 # Create docker user
 RUN apt-get update && \
@@ -56,7 +54,7 @@ RUN sudo mkdir -p /experiment && sudo chown -R docker /experiment
 WORKDIR /experiment
 
 # add generic preprocessing script
-ADD preprocess /experiment/preprocess
+ADD base/preprocess /experiment/preprocess
 
 # add compile script
 ADD compile.sh /experiment/compile.sh
@@ -64,11 +62,6 @@ ADD compile.sh /experiment/compile.sh
 RUN sudo chown -R docker /experiment && \
     sudo chmod +x compile.sh
 
-# end of gzip equivalent of my_manybugs:base
-#---------------------------------
-
-#---------------------------------
-# start of gzip Dockerfile
 RUN sudo apt-get update && \
     sudo apt-get install -y \
       wget \
