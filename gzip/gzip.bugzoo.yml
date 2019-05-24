@@ -13,28 +13,28 @@ blueprints:
     tag: squareslab/manybugs:gzip-2009-09-26-a1d3d4019d-f17cbd13a1
     type: docker
   - arguments:
-      perl: 5.8.9
+      perl: 5.20.0
       scenario: gzip-bug-2009-10-09-1a085b1446-118a107f2d
     depends-on: squareslab/manybugs:gzip
     file: Dockerfile.bug
     tag: squareslab/manybugs:gzip-2009-10-09-1a085b1446-118a107f2d
     type: docker
   - arguments:
-      perl: 5.8.9
+      perl: 5.20.0
       scenario: gzip-bug-2009-08-16-3fe0caeada-39a362ae9d
     depends-on: squareslab/manybugs:gzip
     file: Dockerfile.bug
     tag: squareslab/manybugs:gzip-2009-08-16-3fe0caeada-39a362ae9d
     type: docker
   - arguments:
-      perl: 5.8.9
+      perl: 5.20.0
       scenario: gzip-bug-2010-02-19-3eb6091d69-884ef6d16c
     depends-on: squareslab/manybugs:gzip
     file: Dockerfile.bug
     tag: squareslab/manybugs:gzip-2010-02-19-3eb6091d69-884ef6d16c
     type: docker
   - arguments:
-      perl: 5.8.9
+      perl: 5.20.0
       scenario: gzip-bug-2010-01-30-fc00329e3d-1204630c96
     depends-on: squareslab/manybugs:gzip
     file: Dockerfile.bug
