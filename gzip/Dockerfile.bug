@@ -61,4 +61,6 @@ RUN sed -i "s#bugged-program.txt#manifest.txt#" configuration-default && \
     sed -i "s#perl compile.pl#./compile.sh#"    configuration-default
 
 # Preprocess the source code
-RUN ./preprocess --m32
+# RUN bear ./preprocess --m32
+RUN cd src \
+ && bear make

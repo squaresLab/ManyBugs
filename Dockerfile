@@ -1,5 +1,4 @@
 FROM ubuntu:14.04
-MAINTAINER Chris Timperley "christimperley@gmail.com"
 
 # Create docker user
 RUN apt-get update && \
@@ -47,14 +46,25 @@ RUN sudo apt-get update && \
 RUN sudo rm /bin/sh && \
     sudo ln -s /bin/bash /bin/sh
 
+# install Bear
+RUN cd /tmp \
+ && wget https://github.com/rizsotto/Bear/archive/2.3.13.tar.gz \
+ && tar -xf 2.3.13.tar.gz \
+ && cd Bear-2.3.13 \
+ && mkdir build \
+ && cd build \
+ && cmake .. \
+ && make \
+ && sudo make install \
+ && rm -rf /tmp/*
+
 # Create the experiment directory and set it as the work dir
 RUN sudo mkdir -p /experiment && sudo chown -R docker /experiment
 WORKDIR /experiment
 
 # add generic preprocessing script
-ADD base/preprocess /experiment/preprocess
+COPY base/preprocess /experiment/preprocess
 
-# add compile script
-ADD compile.sh /experiment/compile.sh
+COPY compile.sh /experiment/compile.sh
 RUN sudo chown -R docker /experiment && \
     sudo chmod +x compile.sh

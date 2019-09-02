@@ -49,6 +49,18 @@ RUN sudo apt-get update && \
 RUN sudo rm /bin/sh && \
     sudo ln -s /bin/bash /bin/sh
 
+# install Bear
+RUN cd /tmp \
+ && wget https://github.com/rizsotto/Bear/archive/2.3.13.tar.gz \
+ && tar -xf 2.3.13.tar.gz \
+ && cd Bear-2.3.13 \
+ && mkdir build \
+ && cd build \
+ && cmake .. \
+ && make \
+ && sudo make install \
+ && rm -rf /tmp/*
+
 # Create the experiment directory and set it as the work dir
 RUN sudo mkdir -p /experiment && sudo chown -R docker /experiment
 WORKDIR /experiment

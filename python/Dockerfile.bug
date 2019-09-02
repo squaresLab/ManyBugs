@@ -56,4 +56,4 @@ RUN sed -i "s#def test_create_connection_timeout(self):#def test_create_connecti
 # preprocess
 RUN ./preprocess --base && \
     cd src && \
-    make -j$(nproc)
+    bear make -j$(nproc)
