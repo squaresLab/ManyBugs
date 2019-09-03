@@ -1,13 +1,12 @@
 FROM squareslab/manybugs:base
-MAINTAINER Chris Timperley "christimperley@gmail.com"
 
 RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
       autoconf \
       libxml2-dev \
       python \
       psmisc \
- && sudo apt-get clean && \
- && sudo apt-get autoremove && \
+ && sudo apt-get clean \
+ && sudo apt-get autoremove \
  && sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY libxml.patch /experiment
