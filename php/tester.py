@@ -3,6 +3,7 @@ import fnmatch
 import os
 import sys
 import subprocess
+import signal
 
 from subprocess import Popen, PIPE
 
@@ -79,7 +80,8 @@ def run(identifier, exe=None):
             return outcome in ["PASS", "SKIP"]
 
         except subprocess.TimeoutExpired:
-            os.killpg(p.pid, signal.SIGKILL)
+            os.system("killall -9 php")
+            os.kill(p.pid, signal.SIGTERM)
             return False
         
         except:
