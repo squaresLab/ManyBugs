@@ -1,4 +1,6 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
+MAINTAINER Chris Timperley "christimperley@gmail.com"
+
 
 # Create docker user
 RUN apt-get update && \
@@ -17,6 +19,7 @@ RUN sudo chown -R docker /usr/local/bin
 
 # install basic packages
 RUN sudo apt-get update && \
+    sudo apt-get upgrade -y subversion && \
     sudo apt-get install  --no-install-recommends -y \
                           build-essential \
                           gcc \
@@ -63,8 +66,29 @@ RUN sudo mkdir -p /experiment && sudo chown -R docker /experiment
 WORKDIR /experiment
 
 # add generic preprocessing script
-COPY base/preprocess /experiment/preprocess
+ADD base/preprocess /experiment/preprocess
 
-COPY compile.sh /experiment/compile.sh
+# add compile script
+ADD compile.sh /experiment/compile.sh
+
 RUN sudo chown -R docker /experiment && \
     sudo chmod +x compile.sh
+
+RUN sudo apt-get update && \
+    sudo apt-get install -y \
+      wget \
+      rsync \
+      autoconf \
+      gettext \
+      autopoint \
+      texinfo \
+      gcc-multilib \
+      psmisc && \
+    sudo apt-get clean && \
+    sudo rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+ENV PERLBREW_ROOT "/home/docker/perl5/perlbrew"
+ENV PERLBREW_HOME "/home/docker/.perlbrew"
+ENV PERLBREW_PATH "${PERLBREW_ROOT}/bin"
+ENV PATH "${PERLBREW_PATH}:${PATH}"
+RUN wget -O - https://install.perlbrew.pl | bash && \
+    perlbrew init

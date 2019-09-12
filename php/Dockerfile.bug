@@ -98,3 +98,8 @@ RUN cd src && \
     find . -name tests -type d | rm -rf - && \
     tar -xf all-tests.tar.gz && \
     rm -f all-tests.tar.gz
+
+# build
+RUN cd src \
+ && make clean \
+ && bear make -j4
