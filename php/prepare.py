@@ -27,8 +27,8 @@ NASTY_REVISIONS = [
 TEST_DIRS = [
     "Zend/tests",
     "tests",
-    "ext/date/tests"
-    "ext/dom/tests"
+    "ext/date/tests",
+    "ext/dom/tests",
     "ext/libxml/tests",
     "ext/json/tests",
     "ext/phar/tests",
@@ -47,14 +47,13 @@ def cmd(cmd):
 
 if __name__ == "__main__":
     bug_rev = os.environ.get('BUG_REVISION')
+    fix_rev = os.environ.get('FIX_REVISION')
 
     with open('/experiment/manifest.txt', 'r') as f:
         buggy_files = [l.strip() for l in f]
 
-    # handle nasty scenarios
-    if bug_rev in NASTY_REVISIONS:
-        cmd('cd /experiment/src && git reset --hard && git clean -fd')
-        cmd('cd /experiment/src && git checkout "{}"'.format(bug_rev))
+    cmd('cd /experiment/src && git reset --hard && git clean -fd')
+    cmd('cd /experiment/src && git checkout "{}"'.format(bug_rev))
 
     # apply libxml fix
     cmd('cd /experiment/src && cat ../libxml.patch | patch -p0')
@@ -63,19 +62,23 @@ if __name__ == "__main__":
     cmd('cd /experiment/src && ./buildconf')
 
     # preprocess
-    if bug_rev in NASTY_REVISIONS:
-        cmd('cd /experiment/src && ./configure CFLAGS="-save-temps=obj"')
-        cmd('cd /experiment/src && make -j{}'.format(multiprocessing.cpu_count()))
+    cmd('cd /experiment/src && ./configure CFLAGS="-save-temps=obj"')
+    cmd('cd /experiment/src && make -j{}'.format(multiprocessing.cpu_count()))
 
-        for fn in buggy_files:
-            source_fn = fn.replace('.c', '.i').replace('.h', '.i')
-            source_fn = os.path.join('/experiment/src', source_fn)
-            target_fn = os.path.join('/experiment/preprocessed', fn)
-            os.remove(target_fn)
-            os.rename(source_fn, target_fn)
+    for fn in buggy_files:
+        source_fn = fn.replace('.c', '.i').replace('.h', '.i')
+        source_fn = os.path.join('/experiment/src', source_fn)
+        target_fn = os.path.join('/experiment/preprocessed', fn)
+        os.remove(target_fn)
+        os.rename(source_fn, target_fn)
 
-        cmd('cd /experiment/src && make distclean')
+    cmd('cd /experiment/src && make distclean')
+
+    cmd('cd /experiment/src && find . -name tests -type d -exec git checkout {} {{}} \;'.format(fix_rev))
 
     # configure and build source code
-    cmd('cd /experiment/src && ./configure')
+    if bug_rev in ['74343ca506', '8138f7de40']:
+        cmd('cd /experiment/src && ./configure --disable-phar "CFLAGS=-fprofile-arcs -ftest-coverage" "CXXFLAGS=-fprofile-arcs -ftest-coverage" "LDFLAGS=-lgcov"')
+    else:
+        cmd('cd /experiment/src && ./configure "CFLAGS=-fprofile-arcs -ftest-coverage" "CXXFLAGS=-fprofile-arcs -ftest-coverage" "LDFLAGS=-lgcov"')
     cmd('cd /experiment/src && make -j{}'.format(multiprocessing.cpu_count()))
